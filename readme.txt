@@ -1,6 +1,6 @@
 === Social PopUP ===
 Contributors: timersys
-Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus
+Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash
 Requires at least: 3
 Tested up to: 3.3.2
 Stable tag: 1.0
@@ -53,4 +53,3 @@ Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.o
 == Screenshots ==
 
 1. Social PopUp
-2. Social PopUp Settings page
