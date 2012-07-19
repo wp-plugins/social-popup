@@ -1,5 +1,6 @@
 === Social PopUP ===
 Contributors: timersys
+Donate link: http://www.masquewordpress.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash
 Requires at least: 3
 Tested up to: 3.3.2
