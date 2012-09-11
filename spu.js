@@ -1,12 +1,12 @@
-
 (function($) {
+	
 	$.fn.socialPopUP = function(options) {
-		var defaults = {};
+		var defaults = { days_no_click : "10" };
 		var options = $.extend(defaults, options);
 		getPopHTML = function() {
 			var spClose = '';
 			if (defaults.closeable == true) {
-				spClose = '<a href="#" onClick="spuFlush();" id="spu-close">Close<a/>';
+				spClose = '<a href="#" onClick="spuFlush('+defaults.days_no_click+');" id="spu-close">Close<a/>';
 			}
 			var sPop = '<div id="spu-bg"></div><div id="spu-main"><div id="spu-title">' + spClose + '' + defaults.title + '</div><div id="spu-msg-cont"><div id="spu-msg">' + defaults.message + '</div>';
 			var googlePop = '<div class="spu-button"><div class="g-plusone" data-callback="googleCB" data-action="share" data-annotation="bubble" data-height="24" data-href="' + defaults.go_url + '"></div></div>';
@@ -43,11 +43,11 @@
 		if (defaults.advancedClose == true) {
 			$(document).keyup(function(e) {
 				if (e.keyCode == 27) {
-					spuFlush(false);
+					spuFlush(defaults.days_no_click);
 				}
 			});
 			$('body').click(function() {
-				spuFlush(false);
+				spuFlush(defaults.days_no_click);
 			});
 			$('#spu-main').click(function(event) {
 				event.stopPropagation();
@@ -58,7 +58,7 @@
 })(jQuery);
 jQuery(document).ready(function(){
 FB.Event.subscribe('edge.create', function(href) {
-	spuFlush(true);
+	spuFlush();
 });
 twttr.ready(function(twttr) {
 	twttr.events.bind('tweet', twitterCB);
@@ -66,17 +66,17 @@ twttr.ready(function(twttr) {
 });
 });
 function twitterCB(intent_event) {
-	spuFlush(true);
+	spuFlush();
 }
 
 function googleCB() {
-	spuFlush(true);
+	spuFlush();
 }
 
-function spuFlush(action) {
-	if (action == true) {
-		createCookie('spushow', 'true', 99);
-	}
+function spuFlush( days = 99) {
+	
+	createCookie('spushow', 'true', days);
+	
 	jQuery("#spu-bg").fadeOut("slow");
 	jQuery("#spu-main").fadeOut("slow");
 }

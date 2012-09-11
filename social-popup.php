@@ -2,7 +2,7 @@
 /**
  Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
  Plugin URI: http://www.masquewordpress.com/plugins/social-popup/
- Version: 1.0
+ Version: 1.1
  Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
  Author: Damian Logghe
  Author URI: http://www.masquewordpress.com
@@ -86,7 +86,7 @@ class socialPopup
 	//function that display the textarea editor form
 	function style_box_form()
 	{
-		$defaults = array( 'enable' => 'false', 'title' => 'Please support the site','message' => 'By clicking any of these buttons you help our site to get better', 'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' );
+		$defaults = array( 'enable' => 'false', 'title' => 'Please support the site','message' => 'By clicking any of these buttons you help our site to get better', 'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '10' );
 		$options = get_option('spu_option',$defaults);
 		
 		
@@ -184,6 +184,16 @@ class socialPopup
 		    	</tr>
 		    	
 		    	<tr valign="top">
+		        	<th scope="row">How many days until popup shows again?</th>
+		        	<td><fieldset>
+						<input class="field" name="spu_option[days-no-click]" type="text"  value="<?php echo $options['days-no-click']; ?>" />
+		        
+						<div class="description">This only applies when the user DONT click any of the social icons and close the popup</div>
+		        	</fieldset>
+		        	</td>
+		    	</tr>
+		    	
+		    	<tr valign="top">
 		        	<th scope="row">Opacity</th>
 		        	<td><fieldset>
 						<input class="field" name="spu_option[bg_opacity]" type="text"  value="<?php echo $options['bg_opacity']; ?>" />
@@ -263,6 +273,7 @@ class socialPopup
 							fb_url: "<?php echo $options['facebook']; ?>",
 							go_url: "<?php echo $options['google']; ?>",
 							twitter_user: "<?php echo $options['twitter']; ?>",
+							days_no_click: "<?php echo $options['days-no-click']; ?>",
 							credits: <?php echo $options['credits'] == 'true' ? 'true' : 'false'; ?>
 							
 						});

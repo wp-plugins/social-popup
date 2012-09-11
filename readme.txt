@@ -4,7 +4,7 @@ Donate link: http://www.masquewordpress.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash
 Requires at least: 3
 Tested up to: 3.3.2
-Stable tag: 1.0
+Stable tag: 1.1
 
 This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. 
 
@@ -46,6 +46,8 @@ Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.o
 
 == Changelog ==
 
+= 1.1 =
+* Added the ability to not show popup once is clicked
 
 = 1.0 =
 * First version
