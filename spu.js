@@ -73,8 +73,8 @@ function googleCB() {
 	spuFlush();
 }
 
-function spuFlush( days = 99) {
-	
+function spuFlush( days ) {
+	days = typeof days !== 'undefined' ? days : 99;
 	createCookie('spushow', 'true', days);
 	
 	jQuery("#spu-bg").fadeOut("slow");
