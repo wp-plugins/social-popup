@@ -2,7 +2,7 @@
 /**
  Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
  Plugin URI: http://www.masquewordpress.com/plugins/social-popup/
- Version: 1.3
+ Version: 1.3.1
  Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
  Author: Damian Logghe
  Author URI: http://www.masquewordpress.com
@@ -13,6 +13,7 @@ class socialPopup
 
 	var $_options;
 	var $_credits;
+	var $_defaults;
 	
 	function __construct() {
 		
@@ -27,7 +28,7 @@ class socialPopup
 
 		add_action( 'wp_footer',array(&$this,'print_pop' ) );	
 		
-		$defaults = array( 'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ), 'template' => '<div id="spu-title">Please support the site</div>
+		$this->_defaults = array( 'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ), 'template' => '<div id="spu-title">Please support the site</div>
 <div id="spu-msg-cont">
      <div id="spu-msg">
      By clicking any of these buttons you help our site to get better </br>
@@ -62,7 +63,7 @@ class socialPopup
 	padding:12px 0 9px 10px;
 	font-size:16px;
 }' );
-		$options = get_option('spu_option',$defaults);
+		$options = get_option('spu_option',$this->_defaults);
 		
 		$this->_options = $options;
 		
@@ -145,6 +146,7 @@ class socialPopup
 		
 		
 		$options = $this->_options;
+		$defaults = $this->_defaults;
 		?>
 		<style type="text/css">
 	    	.postbox input.field,.postbox textarea  { width:500px;}
@@ -210,7 +212,7 @@ class socialPopup
 		    	<tr valign="top">
 			        <th scope="row">Template</th>
 			        <td><fieldset>
-						<textarea  class="textarea" name="spu_option[template]" cols="" rows="9" ><?php echo $options['template']; ?></textarea>
+						<textarea  class="textarea" name="spu_option[template]" cols="" rows="9" ><?php echo isset($options['template']) && $options['template'] != '' ? $options['template'] : $defaults['template'] ; ?></textarea>
 			                        
 						<div class="description">Edit the default template. Add or remove buttons with {twitter}, {facebook}, {google} and edit or add your custom HTML</div>
 			        </fieldset>
@@ -221,7 +223,7 @@ class socialPopup
 		    	<tr valign="top">
 			        <th scope="row">Css Rules</th>
 			        <td><fieldset>
-			        	<textarea name="spu_option[css]" cols="" rows="9" ><?php echo $options['css']; ?></textarea>
+			        	<textarea name="spu_option[css]" cols="" rows="9" ><?php echo isset($options['css']) && $options['css'] != '' ? $options['css'] : $defaults['css']; ?></textarea>
 			        
 			        	<div class="description">This are some rules for the default template. Feel free to create yours.</div>
 			        </fieldset>
@@ -248,7 +250,9 @@ class socialPopup
 						<input type="checkbox" value="true" name="spu_option[where][home]" <?php echo isset($options['where']['home']) && $options['where']['home'] == 'true' ? 'checked="checked"':'';?>/> Home <br/>
 						<input type="checkbox" value="true" name="spu_option[where][pages]" <?php echo isset($options['where']['pages']) && $options['where']['pages'] == 'true' ? 'checked="checked"':'';?>/> Pages <br/>
 						<input type="checkbox" value="true" name="spu_option[where][posts]" <?php echo isset($options['where']['posts']) && $options['where']['posts'] == 'true' ? 'checked="checked"':'';?>/> Posts <br/>
-						<input type="checkbox" value="true" name="spu_option[where][everywhere]" <?php echo isset($options['where']['everywhere']) && $options['where']['everywhere'] == 'true' ? 'checked="checked"':'';?>/> Everywhere<br/>
+						<input type="checkbox" value="true" name="spu_option[where][everywhere]" <?php echo isset($options['where']['everywhere']) && $options['where']['everywhere'] == 'true'  ? 'checked="checked"':'';
+							echo !isset($options['where']['everywhere']) ? 'checked="checked"':'';
+						?>/> Everywhere<br/>
 						
 			            <div class="description">Where to show popup.</div>
 		    		</fieldset>
@@ -282,7 +286,7 @@ class socialPopup
 		    	<tr valign="top">
 		        	<th scope="row">How many days until popup shows again?</th>
 		        	<td><fieldset>
-						<input class="field" name="spu_option[days-no-click]" type="text"  value="<?php echo $options['days-no-click']; ?>" />
+						<input class="field" name="spu_option[days-no-click]" type="text"  value="<?php echo isset($options['days-no-click']) && $options['days-no-click'] != '' ? $options['days-no-click']: $defaults['days-no-click']; ?>" />
 		        
 						<div class="description">When a user closes the popup he won't see it again until all these days pass</div>
 		        	</fieldset>
