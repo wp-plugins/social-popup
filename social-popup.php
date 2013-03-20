@@ -2,7 +2,7 @@
 /**
  Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
  Plugin URI: http://www.masquewordpress.com/plugins/social-popup/
- Version: 1.3.1
+ Version: 1.4
  Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
  Author: Damian Logghe
  Author URI: http://www.masquewordpress.com
@@ -27,6 +27,9 @@ class socialPopup
 		add_action( 'wp_head',array(&$this,'exec_plugin' ) );	
 
 		add_action( 'wp_footer',array(&$this,'print_pop' ) );	
+		
+		add_action('wp_ajax_spu_reset', array(&$this,'spu_reset' ));
+		add_action('wp_ajax_nopriv_spu_reset', array(&$this,'spu_reset' ));
 		
 		$this->_defaults = array( 'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ), 'template' => '<div id="spu-title">Please support the site</div>
 <div id="spu-msg-cont">
@@ -151,6 +154,32 @@ class socialPopup
 		<style type="text/css">
 	    	.postbox input.field,.postbox textarea  { width:500px;}
 	    </style>
+	    <script type="text/javascript">
+	    	jQuery(document).ready(function($){
+
+	    		$('.reset_html').click(function(e){
+	    				e.preventDefault(); 
+	    				$.post('<?php echo site_url('wp-admin/admin-ajax.php');?>',
+	    					   { action: 'spu_reset', what:'html'}, 
+	    					   function(response){
+			    					$('#html_area').val(response);
+			    			   }
+	    						) 	
+	    				
+	    		});					
+	    		$('.reset_css').click(function(e){ 
+	    		e.preventDefault();
+	    				$.post('<?php echo site_url('wp-admin/admin-ajax.php');?>',
+	    					   { action: 'spu_reset', what:'css'}, 
+	    					   function(response){
+			    					$('#css_area').val(response);
+			    			   }
+	    						) 	
+	    				return false;
+	    		});					
+	    	/*	$('.reset_css').click(function(){ $('#css_area').text('<?php echo $defaults['css'];?>'); return false; });*/
+	    	});
+	    </script>
 	   	<form method="post" action="options.php" >
 	 
 	    <?php settings_fields( 'spu_options' );?>
@@ -212,9 +241,9 @@ class socialPopup
 		    	<tr valign="top">
 			        <th scope="row">Template</th>
 			        <td><fieldset>
-						<textarea  class="textarea" name="spu_option[template]" cols="" rows="9" ><?php echo isset($options['template']) && $options['template'] != '' ? $options['template'] : $defaults['template'] ; ?></textarea>
+						<textarea  class="textarea" name="spu_option[template]" cols="" rows="9" id="html_area" ><?php echo isset($options['template']) && $options['template'] != '' ? $options['template'] : $defaults['template'] ; if( isset($_REQUEST['reset_html'])) echo $defaults['template'];?></textarea>
 			                        
-						<div class="description">Edit the default template. Add or remove buttons with {twitter}, {facebook}, {google} and edit or add your custom HTML</div>
+						<div class="description">Edit the default template. Add or remove buttons with {twitter}, {facebook}, {google} and edit or add your custom HTML. <button class="reset_html" value="reset_html">RESET HTML CODE</button></div>
 			        </fieldset>
 			        </td>
 		    	</tr>
@@ -223,9 +252,9 @@ class socialPopup
 		    	<tr valign="top">
 			        <th scope="row">Css Rules</th>
 			        <td><fieldset>
-			        	<textarea name="spu_option[css]" cols="" rows="9" ><?php echo isset($options['css']) && $options['css'] != '' ? $options['css'] : $defaults['css']; ?></textarea>
+			        	<textarea name="spu_option[css]" cols="" rows="9" id="css_area" ><?php echo isset($options['css']) && $options['css'] != '' ? $options['css'] : $defaults['css']; ?></textarea>
 			        
-			        	<div class="description">This are some rules for the default template. Feel free to create yours.</div>
+			        	<div class="description">This are some rules for the default template. Feel free to create yours.<button class="reset_css">RESET CSS CODE</button></div>
 			        </fieldset>
 			        </td>
 		    	</tr>
@@ -240,24 +269,8 @@ class socialPopup
 			        	</td>
 			    	</tr>
 		    	<tr valign="top">
-		        	<th scope="row" colspan="2"><h2>Avanced</h2></th>
-		        	</td>
+		        	<th scope="row" colspan="2"><h2>Avanced</h2>Some advanced options</th>
 		    	</tr>	
-		    
-		    	<tr valign="top">
-		    		<th scope="row">Show in:</th>
-		    		<td><fieldset>
-						<input type="checkbox" value="true" name="spu_option[where][home]" <?php echo isset($options['where']['home']) && $options['where']['home'] == 'true' ? 'checked="checked"':'';?>/> Home <br/>
-						<input type="checkbox" value="true" name="spu_option[where][pages]" <?php echo isset($options['where']['pages']) && $options['where']['pages'] == 'true' ? 'checked="checked"':'';?>/> Pages <br/>
-						<input type="checkbox" value="true" name="spu_option[where][posts]" <?php echo isset($options['where']['posts']) && $options['where']['posts'] == 'true' ? 'checked="checked"':'';?>/> Posts <br/>
-						<input type="checkbox" value="true" name="spu_option[where][everywhere]" <?php echo isset($options['where']['everywhere']) && $options['where']['everywhere'] == 'true'  ? 'checked="checked"':'';
-							echo !isset($options['where']['everywhere']) ? 'checked="checked"':'';
-						?>/> Everywhere<br/>
-						
-			            <div class="description">Where to show popup.</div>
-		    		</fieldset>
-		    		</td>
-		    	</tr>
 		    	<tr valign="top">
 		    		<th scope="row">Show Close Button</th>
 		    		<td><fieldset>
@@ -295,6 +308,67 @@ class socialPopup
 		    	
 		    	
 		    		
+		    
+		    	<tr valign="top">
+		        	<th scope="row" colspan="2"><h2>Display rules</h2>Be careful, some rules overrides others</th>
+		        	
+		    	</tr>	
+		    	<tr valign="top">
+		    		<th scope="row">Show in:</th>
+		    		<td><fieldset>
+						<input type="checkbox" value="true" name="spu_option[where][home]" <?php echo isset($options['where']['home']) && $options['where']['home'] == 'true' ? 'checked="checked"':'';?>/> Home <br/>
+						<input type="checkbox" value="true" name="spu_option[where][pages]" <?php echo isset($options['where']['pages']) && $options['where']['pages'] == 'true' ? 'checked="checked"':'';?>/> Pages <br/>
+						<input type="checkbox" value="true" name="spu_option[where][posts]" <?php echo isset($options['where']['posts']) && $options['where']['posts'] == 'true' ? 'checked="checked"':'';?>/> Posts <br/>
+						<input type="checkbox" value="true" name="spu_option[where][everywhere]" <?php echo isset($options['where']['everywhere']) && $options['where']['everywhere'] == 'true'  ? 'checked="checked"':'';
+							if( !isset($options['where']) ) echo 'checked="checked"';
+						?>/> Everywhere<br/>
+						
+			            <div class="description">Where to show popup.</div>
+		    		</fieldset>
+		    		</td>
+		    	</tr>
+		    	<tr valign="top">
+		    		<th scope="row">Show to:</th>
+		    		<td><fieldset>
+						<input type="checkbox" value="logged" name="spu_option[show_to][]" <?php echo !isset($options['show_to']) || in_array('logged', $options['show_to']) == 'true' ? 'checked="checked"':'';?>/> Logged in users <br/>
+						<input type="checkbox" value="nologged" name="spu_option[show_to][]" <?php echo !isset($options['show_to']) || in_array('nologged', $options['show_to']) == 'true' ? 'checked="checked"':'';?>/> Non Logged Users <br/>
+				      
+		    		</fieldset>
+		    		</td>
+		    	</tr>
+		    	<tr valign="top">
+		    		<th scope="row">User Roles:</th>
+		    		<td><fieldset>
+		    			<?php 
+		    			$roles =  get_editable_roles();
+		    			
+		    			foreach ($roles as $rol) :
+		    			?>
+		    			<input type="checkbox" value="<?php echo $rol['name'];?>" name="spu_option[roles][]" <?php echo !isset($options['roles']) || in_array($rol['name'],$options['roles'])? 'checked="checked"':'';?>/> <?php echo $rol['name'];?> <br/>
+
+		    			<?php
+		    			endforeach;
+		    			?>
+		    			<div class="description">Choose which user roles will see the popup.( Logged in users must be checked )</div>
+		    		</fieldset>
+		    		</td>
+		    	</tr>
+		    	<tr valign="top">
+		    		<th scope="row">Show only IF:</th>
+		    		<td><fieldset>
+						<input type="checkbox" value="never_commented" name="spu_option[show_if][]" <?php echo isset($options['show_if']) && in_array('never_commented', $options['show_if']) == 'true' ? 'checked="checked"':'';?>/> The user has never left a comment <br/>
+						<input type="checkbox" value="search_engine" name="spu_option[show_if][]" <?php echo isset($options['show_if']) && in_array('search_engine', $options['show_if']) == 'true' ? 'checked="checked"':'';?>/> The user arrived via a search engine. <br/>
+						<input type="checkbox" value="internal" name="spu_option[show_if][]" <?php echo isset($options['show_if']) && in_array('internal', $options['show_if']) == 'true' ? 'checked="checked"':'';?>/> The user did not arrive on this page via another page on your site. <br/>
+						The user arrived via the following referrer : <input type="text" value="<?php echo isset($options['show_if']['referrer']) ? $options['show_if']['referrer']:'';?>" name="spu_option[show_if][referrer]" /><br/>
+				        The user is on a certain URL (enter one URL per line) 
+						<textarea name="spu_option[show_if][onurl]"><?php echo isset($options['show_if']['onurl']) ? $options['show_if']['onurl']:'';?></textarea><br/>
+				        
+				        The user is NOT on a certain URL (enter one URL per line) 
+						<textarea name="spu_option[show_if][notonurl]"><?php echo isset($options['show_if']['notonurl']) ? $options['show_if']['notonurl']:'';?></textarea><br/>
+				      
+		    		</fieldset>
+		    		</td>
+		    	</tr>		    	
 				<tr valign="top">
 		        	<th scope="row" colspan="2"><h2>Debugging</h2></th>
 		        	</td>
@@ -334,7 +408,7 @@ class socialPopup
 	function exec_plugin()
 	{
 	
-		
+		$print_script = false;
 		$options = $this->_options;
 		
 		// Only continue if the pop-up option is enabled...
@@ -345,7 +419,8 @@ class socialPopup
 			if( isset($options['where']['everywhere']) && $options['where']['everywhere'] == 'true' )
 			{
 			
-				$this->print_script();
+				
+				$print_script = true;
 			}
 			else
 			{
@@ -354,7 +429,7 @@ class socialPopup
 				
 					if ( is_single() || is_home() )
 					{
-						$this->print_script();
+						$print_script = true;
 					}
 				}
 				if( isset($options['where']['pages']) && $options['where']['pages'] == 'true' )
@@ -362,7 +437,7 @@ class socialPopup
 				
 					if ( is_page() )
 					{
-						$this->print_script();
+						$print_script = true;
 					}
 				}
 				if( isset($options['where']['home']) && $options['where']['home'] == 'true' )
@@ -370,14 +445,144 @@ class socialPopup
 				
 					if ( is_front_page() )
 					{
-						$this->print_script();
+						$print_script = true;
 					}
 				}
 				
-			}		
-		
+			}
+			
+			if (isset($options['show_to']) && in_array('logged', $options['show_to']))
+			{
+				if( is_user_logged_in() && $print_script == true )
+				{
+					$print_script = true;
+				}
+				else
+				{
+					$print_script = false;
+				}
+			
+			}
+			
+			if (isset($options['show_to']) && in_array('nologged', $options['show_to']) && !in_array('logged', $options['show_to']))
+			{
+				if( !is_user_logged_in() && $print_script == true )
+				{
+					$print_script = true;
+				}
+				else
+				{
+					$print_script = false;
+				}			
+				
+			}
+			elseif (isset($options['show_to']) && in_array('nologged', $options['show_to']) && in_array('logged', $options['show_to']))
+			{
+				$print_script = true;
+			}
+			
+			if( isset($options['roles']) && in_array('logged', $options['show_to']) && is_user_logged_in() )
+			{
+				foreach( $options['roles'] as $rol )
+				{
+					
+					if( current_user_can(strtolower($rol)) &&  $print_script == true )
+					{
+						$print_script = true;
+						break;
+					}
+					else
+					{
+						$print_script = false;
+					}	
+					
+				}
+				
+			}
+			if( isset($options['show_if']) && in_array('never_commented', $options['show_if']) )
+			{ 
+				if ( !isset($_COOKIE['comment_author_'.COOKIEHASH]) &&  $print_script == true ) {
+					$print_script = true;
+				} else {
+					$print_script = false;
+				}
+			}	
+
+			if( isset($options['show_if']) && in_array('search_engine', $options['show_if']) &&  $print_script == true )
+			{ 
+				$ref = isset($_SERVER['HTTP_REFERRER']) ? $_SERVER['HTTP_REFERRER'] : '';
+
+				$SE = array('/search?', '.google.', 'web.info.com', 'search.', 'del.icio.us/search', 'soso.com', '/search/', '.yahoo.', '.bing.' );
+	
+				foreach ($SE as $url) {
+					if (strpos($ref,$url)!==false){
+						$print_script = true;
+						break;
+					}
+					else
+					{
+						$print_script = false;
+					} 
+				}
+			}
+			if( isset($options['show_if']) && in_array('internal', $options['show_if']) &&  $print_script == true )
+			{ 
+				$internal = str_replace(array('http://','https://'),'',site_url());
+				if($this->referrer_matches(addcslashes($internal,"/"))) {
+					$print_script = false;
+				}
+				
+			}
+			if( isset($options['show_if']['referrer']) && $options['show_if']['referrer'] != '' &&  $print_script == true )
+			{ 
+				
+				if(!$this->referrer_matches(addcslashes($options['show_if']['referrer'],"/"))) {
+					$print_script = false;
+				}
+				
+			}
+			if( isset($options['show_if']['onurl']) && $options['show_if']['onurl'] != '' &&  $print_script == true )
+			{
+				$array_urls =  explode("\n", $options['show_if']['onurl']);
+				$urllist = array_map( 'trim', $this->sanitise_array($array_urls) );
+
+				if(!empty($urllist)) {
+					if(in_array($this->myURL(), $urllist)) {
+						// we are on the list
+						$print_script = true;
+						
+					} else {
+						$print_script = false;
+				    }
+				} else {
+					$print_script = true;
+				}
+			}
+			
+			if( isset($options['show_if']['notonurl']) && $options['show_if']['notonurl'] != '' &&  $print_script == true )
+			{
+				$array_urls =  explode("\n", $options['show_if']['notonurl']);
+				$urllist = array_map( 'trim', $this->sanitise_array($array_urls) );
+
+				if(!empty($urllist)) {
+					if(in_array($this->myURL(), $urllist)) {
+						// we are on the list
+						$print_script = false;
+							
+					} else {
+						$print_script = true;
+				    }
+				} else {
+					$print_script = true;
+				}
+			}
+				
+			
+	
 			
 	} // End if enabled
+	
+	if( $print_script ) $this->print_script();
 		
 } // End main function
 	
@@ -466,14 +671,60 @@ function print_pop()
 			echo isset($credits['credits']) && $credits['credits'] == 'on' ? '<div id="spu-bottom"><span style="font-size:10px;float: right;margin-top: -6px;">By <a href="http://www.masquewordpress.com">MasqueWordpress.com</a></span></div>':'';
 	
 	echo '</div>';
+}
+//function to check internal or external referer
+function referrer_matches($check) {
+
+	$referer = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : '';
+
+	if(preg_match( '/' . $check . '/i', $referer )) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
+//function that returns current site url
+function myURL() {
+
+ 	if (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") {
+		$url .= "https://";
+	} else {
+		$url = 'http://';
+	}
+
+	if ($_SERVER["SERVER_PORT"] != "80") {
+  		$url .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+ 	} else {
+  		$url .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+ 	}
+
+ 	return trailingslashit($url);
+}
+//function to create and sanitize array for onurl
+function sanitise_array($arrayin) {
+
+	foreach( (array) $arrayin as $key => $value) {
+		$arrayin[$key] = htmlentities(stripslashes($value) ,ENT_QUOTES, 'UTF-8');
+	}
+
+	return $arrayin;
+}
+
+//function that reset HTML AND CSS
+function spu_reset() {
+
+	if($_REQUEST['what'] == 'html')
+	{
+		echo $this->_defaults['template'];
+	}
+	if($_REQUEST['what'] == 'css')
+	{
+		echo $this->_defaults['css'];
+	}
+	die();
 }	
-	
 } //end of class
 
 
 $social_pop_up = new socialPopup();
-
-
-	
-	
-	
