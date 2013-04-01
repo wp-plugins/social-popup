@@ -2,7 +2,7 @@
 /**
  Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
  Plugin URI: http://www.masquewordpress.com/plugins/social-popup/
- Version: 1.4
+ Version: 1.4.1
  Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
  Author: Damian Logghe
  Author URI: http://www.masquewordpress.com
@@ -109,7 +109,7 @@ class socialPopup
 			wp_enqueue_script('spu-fb', 'http://connect.facebook.net/en_US/all.js#xfbml=1', array('jquery'),FALSE,FALSE);
 			wp_enqueue_script('spu-tw', 'http://platform.twitter.com/widgets.js', array('jquery'),FALSE,FALSE);
 			wp_enqueue_script('spu-go', 'https://apis.google.com/js/plusone.js', array('jquery'),FALSE,FALSE);
-			wp_enqueue_script('spu', plugins_url( 'spu.js' , __FILE__ ),array('jquery'));
+			wp_enqueue_script('spu', plugins_url( 'spu.js' , __FILE__ ),array('jquery'),'1.1');
 			wp_enqueue_style('spu-css', plugins_url( 'spu.css' , __FILE__ ));
 		}
 	}
@@ -152,7 +152,7 @@ class socialPopup
 		$defaults = $this->_defaults;
 		?>
 		<style type="text/css">
-	    	.postbox input.field,.postbox textarea  { width:500px;}
+	    	.postbox input.field,.postbox textarea  { width:500px;}div.inside ul li {list-style: square;margin-left: 20px;}
 	    </style>
 	    <script type="text/javascript">
 	    	jQuery(document).ready(function($){
@@ -619,25 +619,22 @@ function spu_support_form()
 		$credits = $this->_credits;
 		?>
 
-		<div class="inside"><div class="intro"><p>Please Support this plugin</p></div>
-			 <form method="post" action="options.php">
-	    		<?php settings_fields( 'spu_credit_options' );?>
-	    		<p><strong>Click here to add a small link at the bottom of widget</strong>
-					<input type="checkbox" name="spu_credit_option[credits]"  value="on" <?php echo isset($credits['credits']) && $credits['credits'] == 'on' ? 'checked="checked"':'';?>>
-				</p>
-				<?php
-				if (get_bloginfo('version') >= '3.1') { submit_button('Save Changes','secondary'); } else { echo '<input type="submit" name="submit" id="submit" class="button-secondary" value="Save Changes"  />'; }	
-				?>
-			 </form>	
-		<p> Or even better invite me a coffee 
+		<div class="inside"><div class="intro"><p><strong>If you enjoyed, please support this plugin:</strong></p></div>
+		
+		<ul>
+			<li>
+				<a href="http://wordpress.org/extend/plugins/social-popup/">Rate the plugin 5★ on WordPress.org</a>
+			</li>
+			<li>Or even better invite me a coffee :
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 				<input type="hidden" name="cmd" value="_s-xclick">
 				<input type="hidden" name="hosted_button_id" value="3ZMTRLTEXQ9UW">
-				<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 				<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
 				</form>
 
-		</p>
+			</li>
+		</ul>
 		
 		</div><div style="clear:both;"></div>
 		<?

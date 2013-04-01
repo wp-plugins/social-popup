@@ -32,7 +32,11 @@
 					spuFlush(defaults.days_no_click);
 				}
 			});
-			$('body').click(function() {
+			var ua = navigator.userAgent,
+			event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
+			
+			$('body').on(event, function (ev) {
+				
 				spuFlush(defaults.days_no_click);
 			});
 			$('#spu-main').click(function(event) {
