@@ -1,8 +1,7 @@
-(function($) {
-	
-	$.fn.socialPopUP = function(options) {
+
+	function socialPopUP(options) {
 		var defaults = { days_no_click : "10" };
-		var options = $.extend(defaults, options);
+		var options = jQuery.extend(defaults, options);
 		
 		var cook = readCookie('spushow');
 		var waitCook = readCookie('spuwait');
@@ -10,38 +9,43 @@
 		if (cook != 'true') {
 			var windowWidth = document.documentElement.clientWidth;
 			var windowHeight = document.documentElement.clientHeight;
-			var popupHeight = $("#spu-main").height();
-			var popupWidth = $("#spu-main").width();
-			$("#spu-main").css({
-				"position": "absolute",
+			var popupHeight = jQuery("#spu-main").height();
+			var popupWidth = jQuery("#spu-main").width();
+			jQuery("#spu-main").css({
+				"position": "fixed",
 				"top": 250,
 				"left": windowWidth / 2 - popupWidth / 2
 			});
-			$("#spu-bg").css({
+			jQuery("#spu-bg").css({
 				"height": windowHeight
 			});
-			$("#spu-bg").css({
+			jQuery("#spu-bg").css({
 				"opacity": defaults.opacity
 			});
-			$("#spu-bg").fadeIn("slow");
-			$("#spu-main").fadeIn("slow");
+			jQuery("#spu-bg").fadeIn("slow");
+			jQuery("#spu-main").fadeIn("slow");
 		}
+		
 		if (defaults.advancedClose == true) {
-			$(document).keyup(function(e) {
+			jQuery(document).keyup(function(e) {
 				if (e.keyCode == 27) {
 					spuFlush(defaults.days_no_click);
 				}
 			});
-			$('body').click(function() {
+			var ua = navigator.userAgent,
+			event = (ua.match(/iPad/i) || ua.match(/iPhone/i)) ? "touchstart" : "click";
+			
+			jQuery('body').on(event, function (ev) {
+				
 				spuFlush(defaults.days_no_click);
 			});
-			$('#spu-main').click(function(event) {
+			jQuery('#spu-main').click(function(event) {
 				event.stopPropagation();
 			});
 		}
 		return true;
-	};
-})(jQuery);
+	}
+
 
 jQuery(document).ready(function(){
 FB.Event.subscribe('edge.create', function(href) {
