@@ -67,6 +67,9 @@ Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.o
 
 == Changelog ==
 
+= 1.5.1.1 =
+* Problem when tagged new version some files were not uplaoded
+
 = 1.5.1 =
 * Problem when tagged new version some files were not uplaoded
 
