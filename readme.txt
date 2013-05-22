@@ -1,10 +1,10 @@
 === Social PopUP ===
 Contributors: timersys
-Donate link: http://www.masquewordpress.com/
+Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash
 Requires at least: 3
 Tested up to: 3.5.1
-Stable tag: 1.4.1
+Stable tag: 1.5
 
 This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. 
 
@@ -21,6 +21,7 @@ There are multiple display filters:
 * Filter users via specific referrer
 * Filter users via roles
 * Show popup to logged / non logged users
+* Show or not to mobile and tablet users
 
 Popup dissapears if a user click on any social button.
 
@@ -35,19 +36,21 @@ After you activate your plugin, go to the settings page to configure your button
 = Available Settings =
 
 * You can also configure background opacity.
-* Edit the way the popup display by modyfing template
+* Edit the way the popup display by modifying template
 * Edit Css for the template
 * Choose to show popup on post, pages, home page, or certain posts/pages
 * Enable / Disable Close button
 * Enable / Disable Advanced close keys 
 * Days until popup shows again
-* Option to delete popup cookie
+* Seconds until the popup pops
+* Option to delete popup cookies
+* Option to reset plugin to factory settings
 
-Thanks for all comments and messages. Sorry if i dont reply all i just try work on the very little free time i got.
+Thanks for all comments and messages. Sorry if i don't reply all i just try work on the very little free time i got.
 
 = Plugin's Official Site =
 
-Social PopUP ([http://www.masquewordpress.com](http://www.masquewordpress.com/))
+Social PopUP ([http://www.timersys.com/plugins-wordpress/social-popup/](http://www.timersys.com/plugins-wordpress/social-popup/))
 
 = Increase your twitter followers  =
 
@@ -63,6 +66,12 @@ Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.o
 
 
 == Changelog ==
+
+= 1.5 =
+* Improved javascript , should work on all scenarios now
+* Redesigned all backend and improved code
+* Added new options ( seconds to pop, disable on mobiles, factory reset, etc)
+* Changed default template to match screenshots
 
 = 1.4.1 =
 * Fixed Iphone and Ipad problem.
