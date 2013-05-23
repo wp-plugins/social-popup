@@ -1,0 +1,350 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Social PopUP\n"
+"POT-Creation-Date: 2013-05-22 20:50-0300\n"
+"PO-Revision-Date: 2013-05-22 20:52-0300\n"
+"Last-Translator: Damian Logghe <info@timersys.com>\n"
+"Language-Team:  <info@timersys.com>\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: social-popup.php:67
+msgid "Main Settings"
+msgstr ""
+
+#: social-popup.php:68
+msgid "Styling"
+msgstr ""
+
+#: social-popup.php:69
+msgid "Display Rules"
+msgstr ""
+
+#: social-popup.php:70
+msgid "Debugging"
+msgstr ""
+
+#: WP_Plugin_Base.class.php:110
+msgid ""
+"This plugin requires WordPress 3.0 or newer. Please update your WordPress "
+"installation to activate this plugin."
+msgstr ""
+
+#: WP_Plugin_Base.class.php:176
+msgid "Default Field"
+msgstr ""
+
+#: WP_Plugin_Base.class.php:177
+msgid "This is a default description."
+msgstr ""
+
+#: WP_Plugin_Base.class.php:216
+msgid "Settings"
+msgstr ""
+
+#: WP_Plugin_Base.class.php:357
+msgid "Save Changes"
+msgstr ""
+
+#: admin/fields.php:7
+msgid "Enable / Disable"
+msgstr ""
+
+#: admin/fields.php:8
+msgid "Enable / Disable the Social PopUP plugin."
+msgstr ""
+
+#: admin/fields.php:13 admin/fields.php:81 admin/fields.php:204
+msgid "Enabled"
+msgstr ""
+
+#: admin/fields.php:14 admin/fields.php:82 admin/fields.php:205
+msgid "Disabled"
+msgstr ""
+
+#: admin/fields.php:19
+msgid "Credits Url"
+msgstr ""
+
+#: admin/fields.php:20
+msgid "Give us some support by enabling the small link on footer."
+msgstr ""
+
+#: admin/fields.php:25 admin/fields.php:69
+msgid "Yes"
+msgstr ""
+
+#: admin/fields.php:26 admin/fields.php:70
+msgid "No"
+msgstr ""
+
+#: admin/fields.php:32
+msgid "Google \"+1\" Url"
+msgstr ""
+
+#: admin/fields.php:33
+msgid ""
+"The Google url you want to +1 (include \"http://\"). Leave empty for current "
+"visitor page."
+msgstr ""
+
+#: admin/fields.php:40
+msgid "Twitter Username"
+msgstr ""
+
+#: admin/fields.php:41
+msgid "Your twitter username without \"@\" sign."
+msgstr ""
+
+#: admin/fields.php:48
+msgid "Facebook Url"
+msgstr ""
+
+#: admin/fields.php:49
+msgid "You facebook page (include \"http://\")."
+msgstr ""
+
+#: admin/fields.php:63
+msgid "Show Close Button"
+msgstr ""
+
+#: admin/fields.php:64
+msgid "Enable / Disable the close button."
+msgstr ""
+
+#: admin/fields.php:75
+msgid "Close Advanced keys"
+msgstr ""
+
+#: admin/fields.php:76
+msgid ""
+"If enabled, users can close the popup by pressing the escape key or clicking "
+"outside of the popup."
+msgstr ""
+
+#: admin/fields.php:87
+msgid "Days until popup shows again?"
+msgstr ""
+
+#: admin/fields.php:88
+msgid ""
+"When a user closes the popup he won't see it again until all these days pass"
+msgstr ""
+
+#: admin/fields.php:95
+msgid "Seconds for popup to appear ?"
+msgstr ""
+
+#: admin/fields.php:96
+msgid "After the page is loaded, popup will be shown after X seconds"
+msgstr ""
+
+#: admin/fields.php:104
+msgid "Example Checkbox"
+msgstr ""
+
+#: admin/fields.php:105
+msgid "This is a description for the checkbox."
+msgstr ""
+
+#: admin/fields.php:119
+msgid "Example Radio"
+msgstr ""
+
+#: admin/fields.php:120
+msgid "This is a description for the radio buttons."
+msgstr ""
+
+#: admin/fields.php:136
+msgid "Template"
+msgstr ""
+
+#: admin/fields.php:137
+msgid ""
+"Edit the default template. Add or remove buttons with {twitter}, {facebook}, "
+"{google} and edit or add your custom HTML."
+msgstr ""
+
+#: admin/fields.php:137
+msgid "RESET HTML CODE"
+msgstr ""
+
+#: admin/fields.php:150
+msgid "CSS Rules"
+msgstr ""
+
+#: admin/fields.php:151
+msgid ""
+"This are some rules for the default template. Feel free to create yours."
+msgstr ""
+
+#: admin/fields.php:151
+msgid "RESET CSS CODE"
+msgstr ""
+
+#: admin/fields.php:187
+msgid "Opacity"
+msgstr ""
+
+#: admin/fields.php:188
+msgid "Change background opacity. Default is 0.65"
+msgstr ""
+
+#: admin/fields.php:198
+msgid "Mobiles / Tablets"
+msgstr ""
+
+#: admin/fields.php:199
+msgid "If enabled, popup will show in mobiles, tablets, iphones, etc ."
+msgstr ""
+
+#: admin/fields.php:213
+msgid "Show in"
+msgstr ""
+
+#: admin/fields.php:216
+msgid "Where to show popup."
+msgstr ""
+
+#: admin/fields.php:218
+msgid "Home"
+msgstr ""
+
+#: admin/fields.php:219
+msgid "Pages"
+msgstr ""
+
+#: admin/fields.php:220
+msgid "Posts"
+msgstr ""
+
+#: admin/fields.php:221
+msgid "Everywhere"
+msgstr ""
+
+#: admin/fields.php:227
+msgid "Show to"
+msgstr ""
+
+#: admin/fields.php:232
+msgid "Logged in users"
+msgstr ""
+
+#: admin/fields.php:233
+msgid "Non Logged users"
+msgstr ""
+
+#: admin/fields.php:239
+msgid "User roles"
+msgstr ""
+
+#: admin/fields.php:242 admin/fields.php:257
+msgid ""
+"Choose which user roles will see the popup.( Logged in users must be "
+"checked )"
+msgstr ""
+
+#: admin/fields.php:244
+msgid "Administrator"
+msgstr ""
+
+#: admin/fields.php:245
+msgid "Editor"
+msgstr ""
+
+#: admin/fields.php:246
+msgid "Author"
+msgstr ""
+
+#: admin/fields.php:247
+msgid "Contributor"
+msgstr ""
+
+#: admin/fields.php:248
+msgid "Subscriber"
+msgstr ""
+
+#: admin/fields.php:254 admin/fields.php:266 admin/fields.php:274
+#: admin/fields.php:282
+msgid "Show only if"
+msgstr ""
+
+#: admin/fields.php:259
+msgid "The user has never left a comment"
+msgstr ""
+
+#: admin/fields.php:260
+msgid "The user arrived via a search engine. "
+msgstr ""
+
+#: admin/fields.php:261
+msgid "The user did not arrive on this page via another page on your site. "
+msgstr ""
+
+#: admin/fields.php:267
+msgid "The user arrived via the following referrer"
+msgstr ""
+
+#: admin/fields.php:275
+msgid "The user is on a certain URL (enter one URL per line)"
+msgstr ""
+
+#: admin/fields.php:283
+msgid "The user is NOT on a certain URL (enter one URL per line)"
+msgstr ""
+
+#: admin/fields.php:296
+msgid "Delete Cookies"
+msgstr ""
+
+#: admin/fields.php:300
+#, php-format
+msgid ""
+"If you already closed the popup and don't want to wait for %s days, click "
+"this button to see the popup again."
+msgstr ""
+
+#: admin/fields.php:305
+msgid "Reset Plugin"
+msgstr ""
+
+#: admin/fields.php:309
+msgid ""
+"Check this box and click \"Save Changes\" below to reset the plugin options "
+"to their defaults."
+msgstr ""
+
+#: admin/header.php:6
+msgid " options updated."
+msgstr ""
+
+#: admin/sidebar.php:12
+msgid "If you enjoyed, please support this plugin:"
+msgstr "Si te sirvió, por favor apoya el plugin:"
+
+#: admin/sidebar.php:15
+msgid "Rate the plugin 5★ on WordPress.org"
+msgstr "Puntúa el plugin con 5★ en WordPress.org"
+
+#: admin/sidebar.php:18
+msgid "Translate the plugin to your language"
+msgstr "Traduce el plugin a tu idioma"
+
+#: admin/sidebar.php:22
+msgid "Hire me!"
+msgstr "Contrátame!"
+
+#: admin/sidebar.php:25
+msgid "Invite me a coffee :"
+msgstr "Invítame un cafe :"
+
+#: admin/sidebar.php:36
+msgid "Save Settings"
+msgstr "Guardar"
