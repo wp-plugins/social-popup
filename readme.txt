@@ -71,6 +71,9 @@ Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.o
 
 == Changelog ==
 
+= 1.5.5.1 =
+* Fixed js for codemirror RESET BUTTONS
+
 = 1.5.5 =
 * Minor fixes on plugin base with style file and js
 

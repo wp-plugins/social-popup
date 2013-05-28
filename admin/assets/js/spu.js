@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
 			$.post(ajaxurl,
 				   { action: 'spu_reset', what:'html'}, 
 				   function(response){
-    					$('#template').val(response);
+    					editor_template.setValue(response);
     			   }
 					) 	
 			
@@ -15,11 +15,13 @@ jQuery(document).ready(function($){
 			$.post(ajaxurl,
 				   { action: 'spu_reset', what:'css'}, 
 				   function(response){
-    					$('#css').val(response);
+    					editor_css.setValue(response);
     			   }
 					) 	
+					
 			return false;
 	});					
+
 /*	$('.reset_css').click(function(){ $('#css_area').text('<?php echo $defaults['css'];?>'); return false; });*/
 });
 function clearCookie(name, domain, path){

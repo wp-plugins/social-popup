@@ -335,7 +335,7 @@ class WP_Plugin_Base {
 		 		break;	
 			case 'code':
 		 			echo '<script type="text/javascript">
-				 				var editor = CodeMirror.fromTextArea(document.getElementById("code-' . $id . '"), {lineNumbers: true, matchBrackets: true});
+				 				var editor_' . $id . ' = CodeMirror.fromTextArea(document.getElementById("code-' . $id . '"), {lineNumbers: true, matchBrackets: true});
 		 			</script>';
 		 		echo '<div style="width:550px"><textarea class="code-area ' . $field_class . '" id="code-' . $id . '" name="'.$this->options_name.'[' . $id . ']" placeholder="' . $std . '">';
 		 		echo esc_attr( $options[$id] ) != '' ? esc_attr( $options[$id] ) : $std;
