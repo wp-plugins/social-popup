@@ -81,8 +81,9 @@ class WP_Plugin_Base {
 		if ( ! get_option( $this->options_name ) )
 			$this->initialize_settings();
 		
+		
 		//load js and css 
-		add_action( 'init',array(&$this,'load_base_scripts' ) );	
+		add_action( 'init',array(&$this,'load_base_scripts' ),10 );	
 		
 		//adding settings links on plugins page
 		add_filter( 'plugin_action_links', array(&$this,'add_settings_link'), 10, 2 );
@@ -502,10 +503,11 @@ class WP_Plugin_Base {
 		
 			if( is_admin() && isset($_GET['page']) && $_GET['page'] == $this->WPB_SLUG )
 			{
-				wp_enqueue_style('wsi-admin-css', plugins_url( 'admin/assets/base/style.css', __FILE__ ) , __FILE__,'','all',$this->WPB_VERSION );
+				wp_enqueue_style('wsi-admin-css', plugins_url( 'admin/assets/base/style.css', __FILE__ ) , '',$this->WPB_VERSION );
 				wp_enqueue_script('sticky', plugins_url( 'admin/assets/base/sticky.js', __FILE__ ) ,array('jquery'),$this->WPB_VERSION );
 				//register optional scripts
 				wp_register_script('codemirror', plugins_url( 'admin/assets/base/codemirror-compressed.js', __FILE__ ) ,$this->WPB_VERSION );
+				
 			}	
 		
 	}
