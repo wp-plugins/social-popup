@@ -135,7 +135,7 @@
 		'section' => 'styling',
 		'title'   => __( 'Template' , $this->WPB_PREFIX),
 		'desc'    => __( 'Edit the default template. Add or remove buttons with {twitter}, {facebook}, {google} and edit or add your custom HTML.' , $this->WPB_PREFIX).'<button class="reset_html" value="reset_html">'.__( 'RESET HTML CODE' , $this->WPB_PREFIX).'</button>',
-		'type'    => 'textarea',
+		'type'    => 'code',
 		'std'     => "<div id='spu-title'>Please support the site</div>
 <div id='spu-msg-cont'>
      <div id='spu-msg'>
@@ -149,7 +149,7 @@
 		'section' => 'styling',
 		'title'   => __( 'CSS Rules' , $this->WPB_PREFIX),
 		'desc'    => __( 'This are some rules for the default template. Feel free to create yours.' , $this->WPB_PREFIX).'<button class="reset_css">'.__( 'RESET CSS CODE' , $this->WPB_PREFIX).'</button>',
-		'type'    => 'textarea',
+		'type'    => 'code',
 		'std'     => ".spu-button {
 		margin-left:15px;
 		margin-left: 15px;
