@@ -2,7 +2,7 @@
 /*
 Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
 Plugin URI: http://www.timersys.com/plugins-wordpress/social-popup/
-Version: 1.5.6.1
+Version: 1.5.7
 Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
 Author: Damian Logghe
 Author URI: http://www.timersys.com
@@ -380,7 +380,10 @@ class Social_Popup extends WP_Plugin_Base
 								// Configure display of popup
 								advancedClose: <?php echo $options['close-advanced']; ?>,
 								opacity: "<?php echo $options['bg_opacity']; ?>",
-								days_no_click: "<?php echo $options['days-no-click']; ?>"
+								s_to_close: "<?php echo $options['seconds-to-close'] ; ?>",
+								days_no_click: "<?php echo $options['days-no-click']; ?>",
+								segundos : "<?php _e('seconds',$this->WPB_PREFIX);?>",
+								esperar : "<?php _e('Wait',$this->WPB_PREFIX);?>",
 							})
 						}
 							,<?php echo (int)$options['seconds-to-show'] * 1000 ;?>
@@ -420,6 +423,7 @@ class Social_Popup extends WP_Plugin_Base
 					$template = str_replace("{" . $key . "}", $value, $template);
 				}
 				echo $template;
+				echo '<span id="spu-timer"></span>';
 		echo ((isset($options['credits']) && $options['credits'] == 'true') || isset($credits['credits']) && $credits['credits'] == 'on' ) ? '<div id="spu-bottom"><span style="font-size:10px;float: right;margin-top: -6px;">Social PopUP by <a href="http://www.timersys.com">Timersys</a></span></div>':'';
 		
 		echo '</div>';

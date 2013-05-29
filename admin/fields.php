@@ -99,6 +99,13 @@
 		'section' => 'general'
 	);
 	
+	$this->settings['seconds-to-close'] = array(
+		'title'   => __( 'Seconds for popup to close ?' , $this->WPB_PREFIX),
+		'desc'    => __( 'After the popup is loaded, popup will be close after X seconds. 0 to disable' , $this->WPB_PREFIX),
+		'std'     => '0',
+		'type'    => 'text',
+		'section' => 'general'
+	);	
 	$this->settings['example_checkbox'] = array(
 		'section' => 'other',
 		'title'   => __( 'Example Checkbox' , $this->WPB_PREFIX),

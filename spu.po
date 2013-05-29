@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Social PopUP\n"
-"POT-Creation-Date: 2013-05-22 21:01-0300\n"
-"PO-Revision-Date: 2013-05-22 21:01-0300\n"
+"POT-Creation-Date: 2013-05-28 21:35-0300\n"
+"PO-Revision-Date: 2013-05-28 21:35-0300\n"
 "Last-Translator: Damian Logghe <info@timersys.com>\n"
 "Language-Team:  <info@timersys.com>\n"
 "Language: en_EN\n"
@@ -31,25 +31,33 @@ msgstr ""
 msgid "Debugging"
 msgstr ""
 
-#: WP_Plugin_Base.class.php:110
+#: social-popup.php:385
+msgid "seconds"
+msgstr ""
+
+#: social-popup.php:386
+msgid "Wait"
+msgstr ""
+
+#: WP_Plugin_Base.class.php:111
 msgid ""
 "This plugin requires WordPress 3.0 or newer. Please update your WordPress "
 "installation to activate this plugin."
 msgstr ""
 
-#: WP_Plugin_Base.class.php:176
+#: WP_Plugin_Base.class.php:177
 msgid "Default Field"
 msgstr ""
 
-#: WP_Plugin_Base.class.php:177
+#: WP_Plugin_Base.class.php:178
 msgid "This is a default description."
 msgstr ""
 
-#: WP_Plugin_Base.class.php:216
+#: WP_Plugin_Base.class.php:217
 msgid "Settings"
 msgstr ""
 
-#: WP_Plugin_Base.class.php:357
+#: WP_Plugin_Base.class.php:377
 msgid "Save Changes"
 msgstr ""
 
@@ -61,11 +69,11 @@ msgstr ""
 msgid "Enable / Disable the Social PopUP plugin."
 msgstr ""
 
-#: admin/fields.php:13 admin/fields.php:81 admin/fields.php:204
+#: admin/fields.php:13 admin/fields.php:81 admin/fields.php:211
 msgid "Enabled"
 msgstr ""
 
-#: admin/fields.php:14 admin/fields.php:82 admin/fields.php:205
+#: admin/fields.php:14 admin/fields.php:82 admin/fields.php:212
 msgid "Disabled"
 msgstr ""
 
@@ -146,176 +154,185 @@ msgstr ""
 msgid "After the page is loaded, popup will be shown after X seconds"
 msgstr ""
 
+#: admin/fields.php:103
+msgid "Seconds for popup to close ?"
+msgstr ""
+
 #: admin/fields.php:104
+msgid ""
+"After the popup is loaded, popup will be close after X seconds. 0 to disable"
+msgstr ""
+
+#: admin/fields.php:111
 msgid "Example Checkbox"
 msgstr ""
 
-#: admin/fields.php:105
+#: admin/fields.php:112
 msgid "This is a description for the checkbox."
 msgstr ""
 
-#: admin/fields.php:119
+#: admin/fields.php:126
 msgid "Example Radio"
 msgstr ""
 
-#: admin/fields.php:120
+#: admin/fields.php:127
 msgid "This is a description for the radio buttons."
 msgstr ""
 
-#: admin/fields.php:136
+#: admin/fields.php:143
 msgid "Template"
 msgstr ""
 
-#: admin/fields.php:137
+#: admin/fields.php:144
 msgid ""
 "Edit the default template. Add or remove buttons with {twitter}, {facebook}, "
 "{google} and edit or add your custom HTML."
 msgstr ""
 
-#: admin/fields.php:137
+#: admin/fields.php:144
 msgid "RESET HTML CODE"
 msgstr ""
 
-#: admin/fields.php:150
+#: admin/fields.php:157
 msgid "CSS Rules"
 msgstr ""
 
-#: admin/fields.php:151
+#: admin/fields.php:158
 msgid ""
 "This are some rules for the default template. Feel free to create yours."
 msgstr ""
 
-#: admin/fields.php:151
+#: admin/fields.php:158
 msgid "RESET CSS CODE"
 msgstr ""
 
-#: admin/fields.php:187
+#: admin/fields.php:194
 msgid "Opacity"
 msgstr ""
 
-#: admin/fields.php:188
+#: admin/fields.php:195
 msgid "Change background opacity. Default is 0.65"
 msgstr ""
 
-#: admin/fields.php:198
+#: admin/fields.php:205
 msgid "Mobiles / Tablets"
 msgstr ""
 
-#: admin/fields.php:199
+#: admin/fields.php:206
 msgid "If enabled, popup will show in mobiles, tablets, iphones, etc ."
 msgstr ""
 
-#: admin/fields.php:213
+#: admin/fields.php:220
 msgid "Show in"
 msgstr ""
 
-#: admin/fields.php:216
+#: admin/fields.php:223
 msgid "Where to show popup."
 msgstr ""
 
-#: admin/fields.php:218
+#: admin/fields.php:225
 msgid "Home"
 msgstr ""
 
-#: admin/fields.php:219
+#: admin/fields.php:226
 msgid "Pages"
 msgstr ""
 
-#: admin/fields.php:220
+#: admin/fields.php:227
 msgid "Posts"
 msgstr ""
 
-#: admin/fields.php:221
+#: admin/fields.php:228
 msgid "Everywhere"
 msgstr ""
 
-#: admin/fields.php:227
+#: admin/fields.php:234
 msgid "Show to"
 msgstr ""
 
-#: admin/fields.php:232
+#: admin/fields.php:239
 msgid "Logged in users"
 msgstr ""
 
-#: admin/fields.php:233
+#: admin/fields.php:240
 msgid "Non Logged users"
 msgstr ""
 
-#: admin/fields.php:239
+#: admin/fields.php:246
 msgid "User roles"
 msgstr ""
 
-#: admin/fields.php:242 admin/fields.php:257
+#: admin/fields.php:249 admin/fields.php:264
 msgid ""
 "Choose which user roles will see the popup.( Logged in users must be "
 "checked )"
 msgstr ""
 
-#: admin/fields.php:244
+#: admin/fields.php:251
 msgid "Administrator"
 msgstr ""
 
-#: admin/fields.php:245
+#: admin/fields.php:252
 msgid "Editor"
 msgstr ""
 
-#: admin/fields.php:246
+#: admin/fields.php:253
 msgid "Author"
 msgstr ""
 
-#: admin/fields.php:247
+#: admin/fields.php:254
 msgid "Contributor"
 msgstr ""
 
-#: admin/fields.php:248
+#: admin/fields.php:255
 msgid "Subscriber"
 msgstr ""
 
-#: admin/fields.php:254 admin/fields.php:266 admin/fields.php:274
-#: admin/fields.php:282
+#: admin/fields.php:261 admin/fields.php:273 admin/fields.php:281
+#: admin/fields.php:289
 msgid "Show only if"
 msgstr ""
 
-#: admin/fields.php:259
+#: admin/fields.php:266
 msgid "The user has never left a comment"
 msgstr ""
 
-#: admin/fields.php:260
+#: admin/fields.php:267
 msgid "The user arrived via a search engine. "
 msgstr ""
 
-#: admin/fields.php:261
+#: admin/fields.php:268
 msgid "The user did not arrive on this page via another page on your site. "
 msgstr ""
 
-#: admin/fields.php:267
+#: admin/fields.php:274
 msgid "The user arrived via the following referrer"
 msgstr ""
 
-#: admin/fields.php:275
+#: admin/fields.php:282
 msgid "The user is on a certain URL (enter one URL per line)"
 msgstr ""
 
-#: admin/fields.php:283
+#: admin/fields.php:290
 msgid "The user is NOT on a certain URL (enter one URL per line)"
 msgstr ""
 
-#: admin/fields.php:296
+#: admin/fields.php:303
 msgid "Delete Cookies"
 msgstr ""
 
-#: admin/fields.php:300
+#: admin/fields.php:307
 #, php-format
 msgid ""
 "If you already closed the popup and don't want to wait for %s days, click "
 "this button to see the popup again."
 msgstr ""
 
-#: admin/fields.php:305
+#: admin/fields.php:312
 msgid "Reset Plugin"
 msgstr ""
 
-#: admin/fields.php:309
+#: admin/fields.php:316
 msgid ""
 "Check this box and click \"Save Changes\" below to reset the plugin options "
 "to their defaults."
@@ -323,6 +340,11 @@ msgstr ""
 
 #: admin/header.php:6
 msgid " options updated."
+msgstr ""
+
+#: admin/sidebar.php:5
+#, php-format
+msgid "Support %s"
 msgstr ""
 
 #: admin/sidebar.php:12
@@ -345,6 +367,6 @@ msgstr ""
 msgid "Invite me a coffee :"
 msgstr ""
 
-#: admin/sidebar.php:36
+#: admin/sidebar.php:38
 msgid "Save Settings"
 msgstr ""
