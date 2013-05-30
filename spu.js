@@ -1,4 +1,5 @@
-
+var count = 0;
+var counter ='';
 	function socialPopUP(options) {
 		var defaults = { days_no_click : "10" };
 		var options = jQuery.extend(defaults, options);
@@ -13,7 +14,7 @@
 			var popupWidth = jQuery("#spu-main").width();
 			jQuery("#spu-main").css({
 				"position": "fixed",
-				"top": 250,
+				"top": windowHeight / 2 - popupHeight / 2,
 				"left": windowWidth / 2 - popupWidth / 2
 			});
 			jQuery("#spu-bg").css({
@@ -42,6 +43,11 @@
 			jQuery('#spu-main').click(function(event) {
 				event.stopPropagation();
 			});
+		}
+		if( parseInt(defaults.s_to_close) > 0 )
+		{
+			count=defaults.s_to_close;
+			counter = setInterval(function(){timer(defaults)}, 1000);
 		}
 		return true;
 	}
@@ -90,4 +96,16 @@ function readCookie(name) {
 		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
 	}
 	return null;
+}
+function timer(defaults)
+{
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     spuFlush(defaults.days_no_click);
+     return;
+  }
+
+ jQuery("#spu-timer").html(defaults.esperar+" "+count + " " + defaults.segundos);
 }
