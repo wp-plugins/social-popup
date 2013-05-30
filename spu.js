@@ -14,7 +14,7 @@ var counter ='';
 			var popupWidth = jQuery("#spu-main").width();
 			jQuery("#spu-main").css({
 				"position": "fixed",
-				"top": 250,
+				"top": windowHeight / 2 - popupHeight / 2,
 				"left": windowWidth / 2 - popupWidth / 2
 			});
 			jQuery("#spu-bg").css({
