@@ -1,7 +1,10 @@
 
+var count = 0;
+var counter ='';
 	function socialPopUP(options) {
 		var defaults = { days_no_click : "10" };
 		var options = jQuery.extend(defaults, options);
+		window.options = options;
 		
 		var cook = readCookie('spushow');
 		var waitCook = readCookie('spuwait');
@@ -13,7 +16,7 @@
 			var popupWidth = jQuery("#spu-main").width();
 			jQuery("#spu-main").css({
 				"position": "fixed",
-				"top": 250,
+				"top": windowHeight / 2 - popupHeight / 2,
 				"left": windowWidth / 2 - popupWidth / 2
 			});
 			jQuery("#spu-bg").css({
@@ -43,13 +46,27 @@
 				event.stopPropagation();
 			});
 		}
+		if( parseInt(defaults.s_to_close) > 0 )
+		{
+			count=defaults.s_to_close;
+			counter = setInterval(function(){timer(defaults)}, 1000);
+		}
 		return true;
 	}
+
+function thanks_msg(options){
+
+	if( options.thanks_msg){
+		jQuery('#spu-msg-cont').hide().html(options.thanks_msg).fadeIn();
+	}
+	setTimeout(function(){ spuFlush()}, 1000 * options.thanks_sec);
+}
 
 
 jQuery(document).ready(function(){
 FB.Event.subscribe('edge.create', function(href) {
-	spuFlush();
+
+	thanks_msg(window.options);
 });
 twttr.ready(function(twttr) {
 	twttr.events.bind('tweet', twitterCB);
@@ -57,11 +74,11 @@ twttr.ready(function(twttr) {
 });
 });
 function twitterCB(intent_event) {
-	spuFlush();
+	thanks_msg(window.options);
 }
 
 function googleCB() {
-	spuFlush();
+	thanks_msg(window.options);
 }
 
 function spuFlush( days ) {
@@ -90,4 +107,16 @@ function readCookie(name) {
 		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
 	}
 	return null;
+}
+function timer(defaults)
+{
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     spuFlush(defaults.days_no_click);
+     return;
+  }
+
+ jQuery("#spu-timer").html(defaults.esperar+" "+count + " " + defaults.segundos);
 }
