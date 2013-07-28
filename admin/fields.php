@@ -8,7 +8,7 @@
 		'desc'    => __( 'Enable / Disable the Social PopUP plugin.' , $this->WPB_PREFIX),
 		'std'     => 'true',
 		'type'    => 'select',
-		'section' => 'general',
+		'section' => 'spu_general',
 		'choices' => array(
 			'true' => __( 'Enabled' , $this->WPB_PREFIX),
 			'false' => __( 'Disabled' , $this->WPB_PREFIX)
@@ -20,7 +20,7 @@
 		'desc'    => __( 'Give us some support by enabling the small link on footer.' , $this->WPB_PREFIX),
 		'std'     => 'false',
 		'type'    => 'select',
-		'section' => 'general',
+		'section' => 'spu_general',
 		'choices' => array(
 			'true' => __( 'Yes' , $this->WPB_PREFIX),
 			'false' => __( 'No' , $this->WPB_PREFIX)
@@ -33,7 +33,7 @@
 		'desc'    => __( 'The Google url you want to +1 (include "http://"). Leave empty for current visitor page.' , $this->WPB_PREFIX),
 		'std'     => '',
 		'type'    => 'text',
-		'section' => 'general'
+		'section' => 'spu_general'
 	);
 
 	$this->settings['twitter'] = array(
@@ -41,7 +41,7 @@
 		'desc'    => __( 'Your twitter username without "@" sign.' , $this->WPB_PREFIX),
 		'std'     => 'chifliiiii',
 		'type'    => 'text',
-		'section' => 'general'
+		'section' => 'spu_general'
 	);
 
 	$this->settings['facebook'] = array(
@@ -49,11 +49,11 @@
 		'desc'    => __( 'You facebook page (include "http://").' , $this->WPB_PREFIX),
 		'std'     => 'https://www.facebook.com/pages/Timersys/146687622031640',
 		'type'    => 'text',
-		'section' => 'general'
+		'section' => 'spu_general'
 	);
 	
 	$this->settings['example_heading'] = array(
-		'section' => 'general',
+		'section' => 'spu_general',
 		'title'   => '', // Not used for headings.
 		'desc'    => 'Advanced settings',
 		'type'    => 'heading'
@@ -64,7 +64,7 @@
 		'desc'    => __( 'Enable / Disable the close button.' , $this->WPB_PREFIX),
 		'std'     => 'true',
 		'type'    => 'select',
-		'section' => 'general',
+		'section' => 'spu_general',
 		'choices' => array(
 			'true' => __( 'Yes' , $this->WPB_PREFIX),
 			'false' => __( 'No' , $this->WPB_PREFIX)
@@ -76,7 +76,7 @@
 		'desc'    => __( 'If enabled, users can close the popup by pressing the escape key or clicking outside of the popup.' , $this->WPB_PREFIX),
 		'std'     => 'true',
 		'type'    => 'select',
-		'section' => 'general',
+		'section' => 'spu_general',
 		'choices' => array(
 			'true' => __( 'Enabled' , $this->WPB_PREFIX),
 			'false' => __( 'Disabled' , $this->WPB_PREFIX)
@@ -88,7 +88,7 @@
 		'desc'    => __( 'When a user closes the popup he won\'t see it again until all these days pass' , $this->WPB_PREFIX),
 		'std'     => '99',
 		'type'    => 'text',
-		'section' => 'general'
+		'section' => 'spu_general'
 	);
 
 	$this->settings['seconds-to-show'] = array(
@@ -96,7 +96,7 @@
 		'desc'    => __( 'After the page is loaded, popup will be shown after X seconds' , $this->WPB_PREFIX),
 		'std'     => '1',
 		'type'    => 'text',
-		'section' => 'general'
+		'section' => 'spu_general'
 	);
 	
 	$this->settings['seconds-to-close'] = array(
@@ -104,10 +104,26 @@
 		'desc'    => __( 'After the popup is loaded, popup will be close after X seconds. 0 to disable' , $this->WPB_PREFIX),
 		'std'     => '0',
 		'type'    => 'text',
-		'section' => 'general'
+		'section' => 'spu_general'
 	);	
+
+	$this->settings['thanks_msg'] = array(
+		'title'   => __( 'Display a Thanks Message if someone share' , $this->WPB_PREFIX),
+		'desc'    => __( 'After the popup is closed, this message will appear if they click on any social link' , $this->WPB_PREFIX),
+		'std'     => 'Thanks for supporting our site!!!',
+		'type'    => 'text',
+		'section' => 'spu_general'
+	);	
+	$this->settings['thanks_sec'] = array(
+		'title'   => __( 'Seconds for thanks message to show ?' , $this->WPB_PREFIX),
+		'desc'    => __( 'After the thanks message is displayed, popup will be close after X seconds.' , $this->WPB_PREFIX),
+		'std'     => '3',
+		'type'    => 'text',
+		'section' => 'spu_general'
+	);	
+
 	$this->settings['example_checkbox'] = array(
-		'section' => 'other',
+		'section' => 'spu_other',
 		'title'   => __( 'Example Checkbox' , $this->WPB_PREFIX),
 		'desc'    => __( 'This is a description for the checkbox.' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
@@ -115,14 +131,14 @@
 	);
 	
 	$this->settings['example_heading'] = array(
-		'section' => 'other',
+		'section' => 'spu_other',
 		'title'   => '', // Not used for headings.
 		'desc'    => 'Advanced settings',
 		'type'    => 'heading'
 	);
 	
 	$this->settings['example_radio'] = array(
-		'section' => 'other',
+		'section' => 'spu_other',
 		'title'   => __( 'Example Radio' , $this->WPB_PREFIX),
 		'desc'    => __( 'This is a description for the radio buttons.' , $this->WPB_PREFIX),
 		'type'    => 'radio',
@@ -139,7 +155,7 @@
 	===========================================*/
 	
 	$this->settings['template'] = array(
-		'section' => 'styling',
+		'section' => 'spu_styling',
 		'title'   => __( 'Template' , $this->WPB_PREFIX),
 		'desc'    => __( 'Edit the default template. Add or remove buttons with {twitter}, {facebook}, {google} and edit or add your custom HTML.' , $this->WPB_PREFIX).'<button class="reset_html" value="reset_html">'.__( 'RESET HTML CODE' , $this->WPB_PREFIX).'</button>',
 		'type'    => 'code',
@@ -153,7 +169,7 @@
 </div>"
 	);
 	$this->settings['css'] = array(
-		'section' => 'styling',
+		'section' => 'spu_styling',
 		'title'   => __( 'CSS Rules' , $this->WPB_PREFIX),
 		'desc'    => __( 'This are some rules for the default template. Feel free to create yours.' , $this->WPB_PREFIX).'<button class="reset_css">'.__( 'RESET CSS CODE' , $this->WPB_PREFIX).'</button>',
 		'type'    => 'code',
@@ -190,7 +206,7 @@
 	);
 	
 	$this->settings['bg_opacity'] = array(
-		'section' => 'styling',
+		'section' => 'spu_styling',
 		'title'   => __( 'Opacity' , $this->WPB_PREFIX),
 		'desc'    => __( 'Change background opacity. Default is 0.65' , $this->WPB_PREFIX),
 		'type'    => 'text',
@@ -206,7 +222,7 @@
 		'desc'    => __( 'If enabled, popup will show in mobiles, tablets, iphones, etc .' , $this->WPB_PREFIX),
 		'std'     => 'true',
 		'type'    => 'select',
-		'section' => 'display_rules',
+		'section' => 'spu_display_rules',
 		'choices' => array(
 			'true' => __( 'Enabled' , $this->WPB_PREFIX),
 			'false' => __( 'Disabled' , $this->WPB_PREFIX)
@@ -216,7 +232,7 @@
 	
 	
 	$this->settings['where'] = array(
-		'section' => 'display_rules',
+		'section' => 'spu_display_rules',
 		'title'   => __( 'Show in' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
 		'std'     => array("everywhere"),
@@ -230,7 +246,7 @@
 	);
 
 	$this->settings['show_to'] = array(
-		'section' => 'display_rules',
+		'section' => 'spu_display_rules',
 		'title'   => __( 'Show to' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
 		'std'     => array("logged","nologged"),
@@ -242,7 +258,7 @@
 	);
 
 	$this->settings['roles'] = array(
-		'section' => 'display_rules',
+		'section' => 'spu_display_rules',
 		'title'   => __( 'User roles' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
 		'std'     => array("Administrator","Editor","Author","Contributor","Subscriber"),
@@ -257,7 +273,7 @@
 	);
 
 	$this->settings['show_if'] = array(
-		'section' => 'display_rules',
+		'section' => 'spu_display_rules',
 		'title'   => __( 'Show only if' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
 		'std'     => '',
@@ -274,7 +290,7 @@
 		'desc'    => __( 'The user arrived via the following referrer' , $this->WPB_PREFIX),
 		'std'     => '',
 		'type'    => 'text',
-		'section' => 'display_rules'
+		'section' => 'spu_display_rules'
 	);
 
 	$this->settings['on_url'] = array(
@@ -282,7 +298,7 @@
 		'desc'    => __( 'The user is on a certain URL (enter one URL per line)' , $this->WPB_PREFIX),
 		'std'     => '',
 		'type'    => 'textarea',
-		'section' => 'display_rules'
+		'section' => 'spu_display_rules'
 	);
 
 	$this->settings['not_on_url'] = array(
@@ -290,7 +306,7 @@
 		'desc'    => __( 'The user is NOT on a certain URL (enter one URL per line)' , $this->WPB_PREFIX),
 		'std'     => '',
 		'type'    => 'textarea',
-		'section' => 'display_rules'
+		'section' => 'spu_display_rules'
 	);
 
 	
@@ -299,7 +315,7 @@
 	*/
 	$days = isset($options['days-no-click']) ? $options['days-no-click'] : '99';
 	$this->settings['clear_cookies'] = array(
-		'section' => 'debugging',
+		'section' => 'spu_debugging',
 		'title'   => __( 'Delete Cookies' , $this->WPB_PREFIX),
 		'type'    => 'button',
 		'onclick' => "return clearCookie('spushow');",
@@ -308,7 +324,7 @@
 	);	
 	
 	$this->settings['reset_plugin'] = array(
-		'section' => 'debugging',
+		'section' => 'spu_debugging',
 		'title'   => __( 'Reset Plugin' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
 		'std'     => 0,

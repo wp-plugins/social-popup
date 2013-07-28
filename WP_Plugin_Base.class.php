@@ -27,7 +27,7 @@
  * @author      Damian Logghe <info@timersys.com>
  * @license     MIT License https://github.com/serbanghita/Mobile-Detect/blob/master/LICENSE.txt
  * @link        GitHub Repository: https://github.com/timersys/wp-plugin-base
- * @version     1.2
+ * @version     1.2.3
  */
 
 /*
@@ -43,14 +43,14 @@ if( !class_exists('WP_Plugin_Base') ) {
   
 class WP_Plugin_Base {
 
-	var $WPB_PREFIX		=	'wpb';
-	var $WPB_SLUG			=	'wp-plugin-base'; // Need to match plugin folder name
-	var $WPB_PLUGIN_NAME	=	'WP Plugin Base';
-	var $WPB_VERSION		=	'1.0';
-	var $WPB_ABS_PATH;	
-	var $WPB_REL_PATH;
-	var $WPB_PLUGIN_URL;
-	var $PLUGIN_FILE;
+	protected $WPB_PREFIX		=	'wpb';
+	protected $WPB_SLUG			=	'wp-plugin-base'; // Need to match plugin folder name
+	protected $WPB_PLUGIN_NAME	=	'WP Plugin Base';
+	protected $WPB_VERSION		=	'1.0';
+	protected $WPB_ABS_PATH;	
+	protected $WPB_REL_PATH;
+	protected $WPB_PLUGIN_URL;
+	protected $PLUGIN_FILE;
 	protected $current_page;
 	protected $options_name;
 	
@@ -58,7 +58,7 @@ class WP_Plugin_Base {
 	protected $checkboxes;
 	protected $settings;
 	
-	var $_options;
+	protected $_options;
 	var $_credits;
 	var $_defaults;
 	
@@ -110,6 +110,7 @@ class WP_Plugin_Base {
 			deactivate_plugins (basename (dirname (__FILE__)) . '/' . basename (__FILE__));
 			wp_die( __( "This plugin requires WordPress 3.0 or newer. Please update your WordPress installation to activate this plugin.", $this->WPB_PREFIX ) );
 		}
+		
 		
 	}	
 
@@ -245,7 +246,12 @@ class WP_Plugin_Base {
 		switch ( $type ) {
 			
 			case 'heading':
-				echo '</td></tr><tr valign="top"><td colspan="2"><h4>' . $desc . '</h4>';
+				echo '</td></tr><tr valign="top"><td colspan="2" class="'.$class.'"><h2>' . $std . '</h2>';
+				echo '<p>' . $desc . '</p>';
+				break;
+
+			case 'paragraph':
+				echo '<p>' . $desc . '</p>';
 				break;
 			
 			case 'checkbox':
@@ -308,6 +314,13 @@ class WP_Plugin_Base {
 					echo '<br /><span class="description">' . $desc . '</span>';
 				
 				break;
+			case 'disabled':
+				echo '<textarea class="' . $field_class . '" id="' . $id . '" name="'.$this->options_name.'[' . $id . ']" disabled="disabled"  rows="5" cols="30">' . $std .'</textarea>';
+				
+				if ( $desc != '' )
+					echo '<br /><span class="description">' . $desc . '</span>';
+				
+				break;
 			
 			case 'password':
 				echo '<input class="regular-text' . $field_class . '" type="password" id="' . $id . '" name="'.$this->options_name.'[' . $id . ']" value="' . esc_attr( $options[$id] ) . '" />';
@@ -344,6 +357,32 @@ class WP_Plugin_Base {
 		 		if ( $desc != '' )
 		 			echo '<br /><span class="description">' . $desc . '</span>';
 		 		break;	
+		 		
+		 	case 'sortable':
+		 			wp_enqueue_script('jquery-ui-sortable');
+		 			echo '<script>
+					  jQuery(function($) {
+					    $( ".sortable-list" ).sortable({
+					    	placeholder: "ui-state-highlight",
+							stop: function( event, ui ) {
+								var order="";
+								$("#sortable-form span").each(function(){
+									order += $(this).text()+",";
+								});
+								$.post(ajaxurl, {"action": "wsi_order", "order": order.replace(/^,|,$/g,"")} )
+							}
+					    });
+					    $( ".sortable-list" ).disableSelection();
+					  });
+					  </script>';
+		 			echo '<div id="sortable-form"><ul class="sortable-list">';
+		 			foreach (WP_Social_Invitations::get_providers() as $p => $p_name)
+		 			{
+		 				echo '<li class="'.$p.'"><span style="display:none">'.$p.'</span>'.$p_name.'</li>';
+		 			}
+		 			echo '</ul><div style="clear:both;"></div></div>';
+		 	
+		 		break;	
 		 	case 'text':
 			default:
 		 		echo '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="'.$this->options_name.'[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
@@ -367,11 +406,16 @@ class WP_Plugin_Base {
 	public function display_page() {
 		
 		require_once( dirname(__FILE__).'/admin/header.php');		
+		
+		$_GET['page'] != '' ? $page = $_GET['page'] : $page = '';
 	
+		do_action($page.'_wpb_render_box');
+		
 		echo '<form action="options.php" method="post" id="form">';
 	
 		settings_fields( $this->options_name );
 		do_settings_sections($this->options_name );
+		
 		
 		?>
 		<p class="submit"><input name="Submit" type="submit" class="button-primary" value="<?php _e( 'Save Changes', $this->WPB_PREFIX );?>" /></p>
@@ -404,7 +448,7 @@ class WP_Plugin_Base {
 			var wrapped = $(".wrap h3").not('.nowrap').wrap("<div class=\"ui-tabs-panel\">");
 			wrapped.each(function() {
 				$(this).parent().append($(this).parent().nextUntil("div.ui-tabs-panel"));
-			});
+			}); 
 			$(".ui-tabs-panel").each(function(index) {
 				$(this).attr("id", sections[$(this).children("h3").text()]);
 				if (index > 0)
@@ -436,6 +480,14 @@ class WP_Plugin_Base {
 				$("#ui-tabs a").removeClass("nav-tab-active");
 				$(this).addClass("nav-tab-active");
 				$('.ui-tabs-panel').hide();
+				if( $(this).attr('href') == '#stats' )
+				{
+					$('#right-sidebar').fadeOut();
+				}
+				else
+				{
+					$('#right-sidebar').fadeIn();
+				}
 				$($(this).attr('href')).fadeIn();
 				return false;
 			});
@@ -490,8 +542,9 @@ class WP_Plugin_Base {
 	 *
 	 * 
 	 */
-	public function display_section() {
+	public function display_section($section) {
 		// common html text
+		do_action($section['id'].'_wpb_print_box');
 	}
 
 	/**
@@ -506,7 +559,14 @@ class WP_Plugin_Base {
 				wp_enqueue_style('wsi-admin-css', plugins_url( 'admin/assets/base/style.css', __FILE__ ) , '',$this->WPB_VERSION );
 				wp_enqueue_script('sticky', plugins_url( 'admin/assets/base/sticky.js', __FILE__ ) ,array('jquery'),$this->WPB_VERSION );
 				//register optional scripts
-				wp_register_script('codemirror', plugins_url( 'admin/assets/base/codemirror-compressed.js', __FILE__ ) ,$this->WPB_VERSION );
+				wp_register_script('codemirror', plugins_url( 'admin/assets/base/codemirror-compressed.js', __FILE__ ) ,'',$this->WPB_VERSION );
+				wp_register_script('colorpicker-handle', plugins_url( 'admin/assets/base/colorpicker.js', __FILE__ ) ,array('wp-color-picker'),$this->WPB_VERSION );
+				
+				if( ! wp_script_is('wp-color-picker', 'registered') )
+				{
+					wp_register_script('wp-color-picker', plugins_url( 'admin/assets/base/colorpicker.min.js', __FILE__ ) ,'',$this->WPB_VERSION );
+					wp_register_style('wp-color-picker', plugins_url( 'admin/assets/base/colorpicker.css', __FILE__ ) ,'',$this->WPB_VERSION );
+				}
 				
 			}	
 		

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
 Plugin URI: http://www.timersys.com/plugins-wordpress/social-popup/
-Version: 1.5.7.1
+Version: 1.6.0
 Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
 Author: Damian Logghe
 Author URI: http://www.timersys.com
@@ -60,14 +60,14 @@ class Social_Popup extends WP_Plugin_Base
 		$this->WPB_PREFIX		=	'spu';
 		$this->WPB_SLUG			=	'social-popup'; // Need to match plugin folder name
 		$this->WPB_PLUGIN_NAME	=	'Social PopUP';
-		$this->WPB_VERSION		=	'1.6.1';
+		$this->WPB_VERSION		=	'1.6.0';
 		$this->PLUGIN_FILE		=   plugin_basename(__FILE__);
 		$this->options_name		=   'spu_settings';
 		
-		$this->sections['general']      		= __( 'Main Settings', $this->WPB_PREFIX );
-		$this->sections['styling']   			= __( 'Styling', $this->WPB_PREFIX );
-		$this->sections['display_rules']        = __( 'Display Rules', $this->WPB_PREFIX );
-		$this->sections['debugging']       		= __( 'Debugging', $this->WPB_PREFIX );
+		$this->sections['spu_general']      		= __( 'Main Settings', $this->WPB_PREFIX );
+		$this->sections['spu_styling']   			= __( 'Styling', $this->WPB_PREFIX );
+		$this->sections['spu_display_rules']        = __( 'Display Rules', $this->WPB_PREFIX );
+		$this->sections['spu_debugging']       		= __( 'Debugging', $this->WPB_PREFIX );
 		
 		
 		//activation hook
@@ -384,6 +384,8 @@ class Social_Popup extends WP_Plugin_Base
 								days_no_click: "<?php echo $options['days-no-click']; ?>",
 								segundos : "<?php _e('seconds',$this->WPB_PREFIX);?>",
 								esperar : "<?php _e('Wait',$this->WPB_PREFIX);?>",
+								thanks_msg : "<?php echo $options['thanks_msg'] ; ?>",
+								thanks_sec : "<?php echo $options['thanks_sec'] ; ?>",
 							})
 						}
 							,<?php echo (int)$options['seconds-to-show'] * 1000 ;?>
@@ -446,7 +448,7 @@ class Social_Popup extends WP_Plugin_Base
 	*/
 	function setDefaults()
 	{
-		$this->_defaults = array( 'version' => $this->WPB_VERSION ,'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ),'seconds-to-show' => '1', 'template' => '<div id="spu-title">Please support the site</div>
+		$this->_defaults = array( 'version' => $this->WPB_VERSION ,'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ),'seconds-to-show' => '1', 'thanks_msg' => 'Thanks for supporting the site', 'thanks_sec' => '3', 'template' => '<div id="spu-title">Please support the site</div>
 	<div id="spu-msg-cont">
 	     <div id="spu-msg">
 	     By clicking any of these buttons you help our site to get better </br>
