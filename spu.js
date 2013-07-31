@@ -1,4 +1,3 @@
-
 var count = 0;
 var counter ='';
 	function socialPopUP(options) {
@@ -65,10 +64,11 @@ function thanks_msg(options){
 
 jQuery(document).ready(function(){
 FB.Event.subscribe('edge.create', function(href) {
-
+	clearInterval(counter);
 	thanks_msg(window.options);
 });
 twttr.ready(function(twttr) {
+	clearInterval(counter);
 	twttr.events.bind('tweet', twitterCB);
 	twttr.events.bind('follow', twitterCB);
 });
@@ -77,8 +77,13 @@ function twitterCB(intent_event) {
 	thanks_msg(window.options);
 }
 
-function googleCB() {
-	thanks_msg(window.options);
+function googleCB(a) {
+	clearInterval(counter);
+	if( "on" == a.state )
+	{
+		setTimeout(function(){thanks_msg(window.options)},2500);
+	}
+
 }
 
 function spuFlush( days ) {
