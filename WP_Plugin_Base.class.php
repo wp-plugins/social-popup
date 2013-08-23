@@ -64,9 +64,9 @@ class WP_Plugin_Base {
 	
 	function __construct() {
 	
-		$this->WPB_ABS_PATH 	= WP_PLUGIN_DIR . '/'. $this->WPB_SLUG;
+		$this->WPB_ABS_PATH 	=   WP_PLUGIN_DIR . '/'. $this->WPB_SLUG;
 		$this->WPB_REL_PATH		=	dirname( plugin_basename( __FILE__ ) );
-		$this->WPB_PLUGIN_URL	=	WP_PLUGIN_URL . '/'. $this->WPB_SLUG;
+		$this->WPB_PLUGIN_URL	=	plugins_url('', __FILE__ );// for domain mapping
 	
 		//activation hook
 		register_activation_hook( __FILE__, array(&$this,'activate' ));
@@ -308,7 +308,18 @@ class WP_Plugin_Base {
 				break;
 			
 			case 'textarea':
+			
 				echo '<textarea class="' . $field_class . '" id="' . $id . '" name="'.$this->options_name.'[' . $id . ']" placeholder="' . $std . '" rows="5" cols="30">' . wp_htmledit_pre( $options[$id] ) . '</textarea>';
+				
+				if ( $desc != '' )
+					echo '<br /><span class="description">' . $desc . '</span>';
+				
+				break;
+			case 'html':
+				
+				$text = wp_htmledit_pre( $options[$id] ) == '' ? $std : wp_htmledit_pre( $options[$id] );
+				wp_editor(html_entity_decode($text),$id , array('textarea_name' => $this->options_name.'[' . $id . ']','media_buttons' => false,'quicktags' => false,'textarea_rows' => 15));
+
 				
 				if ( $desc != '' )
 					echo '<br /><span class="description">' . $desc . '</span>';
@@ -480,7 +491,7 @@ class WP_Plugin_Base {
 				$("#ui-tabs a").removeClass("nav-tab-active");
 				$(this).addClass("nav-tab-active");
 				$('.ui-tabs-panel').hide();
-				if( $(this).attr('href') == '#stats' )
+				if( $(this).attr('href') == '#stats' || $(this).attr('href') == '#wsi_stats')
 				{
 					$('#right-sidebar').fadeOut();
 				}
