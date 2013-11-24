@@ -2,7 +2,7 @@
 /*
 Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
 Plugin URI: http://www.timersys.com/plugins-wordpress/social-popup/
-Version: 1.6.3
+Version: 1.6.4
 Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
 Author: Damian Logghe
 Author URI: http://www.timersys.com
@@ -49,7 +49,7 @@ if ( function_exists ('load_plugin_textdomain') ){
 		
 require(dirname (__FILE__).'/WP_Plugin_Base.class.php');
   
-class Social_Popup extends WP_Plugin_Base
+class Social_Popup extends WP_Plugin_Base_spu
 {
 
 	
@@ -248,7 +248,7 @@ class Social_Popup extends WP_Plugin_Base
 				}			
 				
 			}
-			elseif (isset($options['show_to']) && key_exists('nologged', $options['show_to']) && key_exists('logged', $options['show_to']))
+			elseif (isset($options['show_to']) && key_exists('nologged', $options['show_to']) && key_exists('logged', $options['show_to'])  && $print_script == true )
 			{
 				$print_script = true;
 			}

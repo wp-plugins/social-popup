@@ -21,9 +21,9 @@
 				<p>
 						<a href="http://www.timersys.com/en/contact-us/"><?php _e('Hire me!', $this->WPB_PREFIX);?></a>
 				</p>
-				<p>OTHER COOL PLUGINS:</p>
+				<p style="font-weight:bold">OTHER COOL PLUGINS:</p>
 				
-					<a href="http://wp.timersys.com/wordpress-social-invitations/" target="_blank">Wordpress Social Invitations</a>
+					<a href="http://wp.timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme" target="_blank">Wordpress Social Invitations</a>
 					<a href="http://wordpress.org/support/plugin/twitter-like-box-reloaded" target="_blank">Twitter Like Box</a>
 				
 				<p><?php _e('Invite me a coffee :', $this->WPB_PREFIX);?></p>

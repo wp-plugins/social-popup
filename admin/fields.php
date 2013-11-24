@@ -316,7 +316,7 @@
 	$days = isset($options['days-no-click']) ? $options['days-no-click'] : '99';
 	$this->settings['clear_cookies'] = array(
 		'section' => 'spu_debugging',
-		'title'   => __( 'Delete Cookies' , $this->WPB_PREFIX),
+		'std'   => __( 'Delete Cookies' , $this->WPB_PREFIX),
 		'type'    => 'button',
 		'onclick' => "return clearCookie('spushow');",
 		'class'   => 'warning', // Custom class for CSS
