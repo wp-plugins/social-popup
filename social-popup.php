@@ -2,7 +2,7 @@
 /*
 Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
 Plugin URI: http://www.timersys.com/plugins-wordpress/social-popup/
-Version: 1.6.4
+Version: 1.6.4.1
 Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
 Author: Damian Logghe
 Author URI: http://www.timersys.com
@@ -187,6 +187,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		if($options['enable'] == 'true')
 		{ 
 			
+
 			//if show everywhere i print script
 			if( isset($options['where']['everywhere']) && $options['where']['everywhere'] == '1' )
 			{
@@ -223,7 +224,11 @@ class Social_Popup extends WP_Plugin_Base_spu
 				
 			}
 			
-			if (isset($options['show_to']) && key_exists('logged', $options['show_to']))
+			if (isset($options['show_to']) && key_exists('nologged', $options['show_to']) && key_exists('logged', $options['show_to'])  )
+			{
+				//$print_script = true; if its true it will remain true
+			}
+			elseif (isset($options['show_to']) && key_exists('logged', $options['show_to']))
 			{
 				if( is_user_logged_in() && $print_script == true )
 				{
@@ -235,8 +240,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 				}
 			
 			}
-			
-			if (isset($options['show_to']) && key_exists('nologged', $options['show_to']) && !key_exists('logged', $options['show_to']))
+			elseif (isset($options['show_to']) && key_exists('nologged', $options['show_to']))
 			{
 				if( !is_user_logged_in() && $print_script == true )
 				{
@@ -248,11 +252,6 @@ class Social_Popup extends WP_Plugin_Base_spu
 				}			
 				
 			}
-			elseif (isset($options['show_to']) && key_exists('nologged', $options['show_to']) && key_exists('logged', $options['show_to'])  && $print_script == true )
-			{
-				$print_script = true;
-			}
-			
 			if( isset($options['roles']) && key_exists('logged', $options['show_to']) && is_user_logged_in() )
 			{
 				foreach( $options['roles'] as $rol => $v)
@@ -271,6 +270,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 				}
 				
 			}
+
 			if( isset($options['show_if']) && is_array($options['show_if']) && key_exists('never_commented', $options['show_if']) )
 			{ 
 				if ( !isset($_COOKIE['comment_author_'.COOKIEHASH]) &&  $print_script == true ) {
@@ -358,7 +358,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 				}
 			}
 	
-			
+
 		} // End if enabled
 	
 		if( $print_script ) $this->print_script();
