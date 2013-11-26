@@ -65,7 +65,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		$this->WPB_PREFIX		=	'spu';
 		$this->WPB_SLUG			=	'social-popup'; // Need to match plugin folder name
 		$this->WPB_PLUGIN_NAME	=	'Social PopUP';
-		$this->WPB_VERSION		=	'1.6.2';
+		$this->WPB_VERSION		=	'1.6.4.1';
 		$this->PLUGIN_FILE		=   plugin_basename(__FILE__);
 		$this->options_name		=   'spu_settings';
 		
