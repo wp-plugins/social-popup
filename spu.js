@@ -1,5 +1,5 @@
-var count = 0;
-var counter ='';
+var spu_count = 0;
+var spu_counter ='';
 	function socialPopUP(options) {
 		var defaults = { days_no_click : "10" };
 		var options = jQuery.extend(defaults, options);
@@ -47,8 +47,8 @@ var counter ='';
 		}
 		if( parseInt(defaults.s_to_close) > 0 )
 		{
-			count=defaults.s_to_close;
-			counter = setInterval(function(){timer(defaults)}, 1000);
+			spu_count=defaults.s_to_close;
+			spu_counter = setInterval(function(){spu_timer(defaults)}, 1000);
 		}
 		return true;
 	}
@@ -64,26 +64,34 @@ function thanks_msg(options){
 
 jQuery(document).ready(function(){
 FB.Event.subscribe('edge.create', function(href) {
-	clearInterval(counter);
+	clearInterval(spu_counter);
 	thanks_msg(window.options);
 });
-twttr.ready(function(twttr) {
-	clearInterval(counter);
-	twttr.events.bind('tweet', twitterCB);
-	twttr.events.bind('follow', twitterCB);
-});
+if (typeof twttr !== 'undefined') {
+	twttr.ready(function(twttr) {
+		clearInterval(spu_counter);
+		twttr.events.bind('tweet', twitterCB);
+		twttr.events.bind('follow', twitterCB);
+	});
+}
 });
 function twitterCB(intent_event) {
 	thanks_msg(window.options);
 }
 
 function googleCB(a) {
-	clearInterval(counter);
+	clearInterval(spu_counter);
 	if( "on" == a.state )
 	{
-		setTimeout(function(){thanks_msg(window.options)},2500);
+	 //	setTimeout(function(){thanks_msg(window.options)},2500);
 	}
 
+}
+function closeGoogle(a){
+	if( "confirm" == a.type )
+	{
+	setTimeout(function(){thanks_msg(window.options)},2500);
+	}
 }
 
 function spuFlush( days ) {
@@ -113,15 +121,15 @@ function readCookie(name) {
 	}
 	return null;
 }
-function timer(defaults)
+function spu_timer(defaults)
 {
-  count=count-1;
-  if (count <= 0)
+  spu_count=spu_count-1;
+  if (spu_count <= 0)
   {
-     clearInterval(counter);
+     clearInterval(spu_counter);
      spuFlush(defaults.days_no_click);
      return;
   }
 
- jQuery("#spu-timer").html(defaults.esperar+" "+count + " " + defaults.segundos);
+ jQuery("#spu-timer").html(defaults.esperar+" "+spu_count + " " + defaults.segundos);
 }

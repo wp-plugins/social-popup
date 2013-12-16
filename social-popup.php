@@ -2,7 +2,7 @@
 /*
 Plugin Name: Social PopUP - Google+, Facebook and Twitter popup
 Plugin URI: http://www.timersys.com/plugins-wordpress/social-popup/
-Version: 1.6.4.1
+Version: 1.6.4.2
 Description: This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. Check readme.txt for full details.
 Author: Damian Logghe
 Author URI: http://www.timersys.com
@@ -65,7 +65,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		$this->WPB_PREFIX		=	'spu';
 		$this->WPB_SLUG			=	'social-popup'; // Need to match plugin folder name
 		$this->WPB_PLUGIN_NAME	=	'Social PopUP';
-		$this->WPB_VERSION		=	'1.6.4.1';
+		$this->WPB_VERSION		=	'1.6.4.2';
 		$this->PLUGIN_FILE		=   plugin_basename(__FILE__);
 		$this->options_name		=   'spu_settings';
 		
@@ -414,7 +414,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		
 		
 		$socials = array(
-			"google" => '<div class="spu-button spu-google"><div class="g-plusone" data-callback="googleCB" data-annotation="bubble" data-size="medium" data-href="' . $options['google'] . '"></div></div>',
+			"google" => '<div class="spu-button spu-google"><div class="g-plusone" data-callback="googleCB" data-onendinteraction="closeGoogle" data-recommendations="false" data-annotation="bubble" data-size="medium" data-href="' . $options['google'] . '"></div></div>',
 	  		"twitter" => '<div class="spu-button spu-twitter"><a href="https://twitter.com/' . $options['twitter'] . '" class="twitter-follow-button" data-show-count="false" >Follow Me</a></div>',
 	  		"facebook" => '<div class="spu-button spu-facebook"><div id="fb-root"></div><div class="fb-like" data-href="' . $options['facebook'] . '" data-send="false" data-width="450" data-show-faces="true"data-layout="button_count"></div></div>'
 	  	);

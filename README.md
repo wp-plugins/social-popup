@@ -1,1 +1,0 @@
-Simple wordpress class i use to start all my plugins
