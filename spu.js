@@ -56,7 +56,10 @@ var spu_counter ='';
 function thanks_msg(options){
 
 	if( options.thanks_msg){
-		jQuery('#spu-msg-cont').hide().html(options.thanks_msg).fadeIn();
+		//I add some delay because twitter is not completing follow event
+		setTimeout(function(){
+			jQuery('#spu-msg-cont').hide().html(options.thanks_msg).fadeIn();
+		}, 500);
 	}
 	setTimeout(function(){ spuFlush()}, 1000 * options.thanks_sec);
 }

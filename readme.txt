@@ -4,7 +4,7 @@ Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup
 Requires at least: 3
 Tested up to: 3.8
-Stable tag: 1.6.4.2
+Stable tag: 1.6.4.3
 
 This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. 
 
@@ -70,6 +70,10 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 * 20USD - Benas - http://silocraft.com/
 * 10USD - Matthew Chua - http://livingIF.com
 
+= Translations =
+
+Spanish - Usuarios de Wordpress http://usuwp.es
+
 == Installation ==
 
 1. Unzip and Upload the directory 'social-popup' to the '/wp-content/plugins/' directory
@@ -80,6 +84,11 @@ Enhance your site by letting your users send Social Invitations ([http://wp.time
 
 
 == Changelog ==
+
+= 1.6.4.3 =
+
+* Fixed bug when in some occasions twitter following was not working
+* Added spanish translation
 
 = 1.6.4.2 =
 
