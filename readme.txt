@@ -4,86 +4,25 @@ Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup
 Requires at least: 3
 Tested up to: 3.8
-Stable tag: 1.6.4.3
+Stable tag: 1.6.4.4
 
-This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. 
-
+Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
 
 
 == Description ==
 
-This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and facebook follow links. This will increase you followers ratio in a 40%. Popup will be close depending on your settings. 
-
-There are multiple display filters:
-* Show popup on specific pages
-* Filter user from search engines
-* Filter users that never commented
-* Filter users via specific referrer
-* Filter users via roles
-* Show popup to logged / non logged users
-* Show or not to mobile and tablet users
-
-Popup dissapears if a user click on any social button.
-
-Popup dissapears if a user click outside of the popup ( Can be disabled )
-
-Popup dissapears if a user click in close button ( Can be disabled )
-
-When a use clicks a button, a cookie will be created , so the user wont see the popup next time he visits the site.
-
-After you activate your plugin, go to the settings page to configure your buttons and enable the popup.
-
-= Available Settings =
-
-* You can also configure background opacity.
-* Edit the way the popup display by modifying template
-* Edit Css for the template
-* Choose to show popup on post, pages, home page, or certain posts/pages
-* Enable / Disable Close button
-* Enable / Disable Advanced close keys 
-* Days until popup shows again
-* Seconds until the popup pops
-* Seconds until the popup close
-* Option to delete popup cookies
-* Option to reset plugin to factory settings
-
-Thanks for all comments and messages. Sorry if i don't reply all i just try work on the very little free time i got.
-
-= Plugin's Official Site =
-
-Social PopUP ([http://www.timersys.com/plugins-wordpress/social-popup/](http://www.timersys.com/plugins-wordpress/social-popup/))
-
-= Github = 
-
-Fork me in https://github.com/timersys/social-popup/
-
-= Increase your twitter followers  =
-
-Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.org/extend/plugins/twitter-like-box-reloaded/](http://wordpress.org/extend/plugins/twitter-like-box-reloaded/))
-
-= Wordpress Social Invitations  =
-
-Enhance your site by letting your users send Social Invitations ([http://wp.timersys.com/wordpress-social-invitations/](http://wp.timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme))
-
-= Donators =
-
-* 20USD - Benas - http://silocraft.com/
-* 10USD - Matthew Chua - http://livingIF.com
-
-= Translations =
-
-Spanish - Usuarios de Wordpress http://usuwp.es
-
-== Installation ==
-
-1. Unzip and Upload the directory 'social-popup' to the '/wp-content/plugins/' directory
-
-2. Activate the plugin through the 'Plugins' menu in WordPress
-
-3. Go to Settings -> Social PopUP and configure the plugin
+^
+^	Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
+^   New plugin include lot of new features and was recoded from scracth. The new social popup have much greater performance
+^   multiple popups are available now with different locations
+^
 
 
 == Changelog ==
+
+= 1.6.4.4 = 
+
+Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
 
 = 1.6.4.3 =
 
