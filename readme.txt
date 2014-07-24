@@ -11,12 +11,23 @@ Deprecated plugin. Please download the new Social PopUp at https://wordpress.org
 
 == Description ==
 
-^
-^	Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
-^   New plugin include lot of new features and was recoded from scracth. The new social popup have much greater performance
-^   multiple popups are available now with different locations
-^
 
+^	 Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
+^    New plugin include lot of new features and was recoded from scracth. The new social popup have much greater performance
+^    multiple popups are available now with different locations
+
+
+= Install Multiple plugins at once with WpFavs  =
+
+Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
+
+= Increase your twitter followers  =
+
+Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.org/extend/plugins/twitter-like-box-reloaded/](http://wordpress.org/extend/plugins/twitter-like-box-reloaded/))
+
+= Wordpress Social Invitations  =
+
+Enhance your site by letting your users send Social Invitations ([http://wp.timersys.com/wordpress-social-invitations/](http://wp.timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme))
 
 == Changelog ==
 
