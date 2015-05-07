@@ -1,4 +1,4 @@
-=== Social PopUP - Deprecated ===
+=== Social PopUP (email lightbox) ===
 Contributors: timersys
 Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup
