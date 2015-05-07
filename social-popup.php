@@ -460,10 +460,10 @@ class Social_Popup extends WP_Plugin_Base_spu
 	*/
 	function setDefaults()
 	{
-		$this->_defaults = array( 'version' => $this->WPB_VERSION ,'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/Timersys/146687622031640', 'twitter'=>'chifliiiii','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ),'seconds-to-show' => '1', 'thanks_msg' => 'Thanks for supporting the site', 'thanks_sec' => '3', 'template' => '<div id="spu-title">Please support the site</div>
+		$this->_defaults = array( 'version' => $this->WPB_VERSION ,'enable' => 'true',  'facebook' => 'https://www.facebook.com/pages/SumoMe', 'twitter'=>'sumome','google' => '','close' => 'true','close-advanced' => 'true', 'bg_opacity' => '0.65' , 'days-no-click' => '99', 'where' => array('everywhere'=>'true' ),'seconds-to-show' => '1', 'thanks_msg' => 'Thanks for supporting the site', 'thanks_sec' => '3', 'template' => '<div id="spu-title">Join me:</div>
 	<div id="spu-msg-cont">
 	     <div id="spu-msg">
-	     By clicking any of these buttons you help our site to get better </br>
+	     </br>
 	     {twitter} {facebook} {google}
 	     </div>
 	    <div class="step-clear"></div>
