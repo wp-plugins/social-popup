@@ -1,6 +1,5 @@
 === Social PopUP - Facebook, Twitter & Google+ ===
 Contributors: timersys
-Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, growth, lightbox,  popover, posts, sharing, widget, plugin
 Requires at least: 3
 Tested up to: 4.2

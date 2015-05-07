@@ -91,7 +91,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		add_action( 'init',array(&$this,'load_scripts' ),50 );	
 
 		//Deprecated --> Notification at top of plugin!
-		add_action('admin_notices' ,array(&$this,'my_admin_notice'));
+		//add_action('admin_notices' ,array(&$this,'my_admin_notice'));
 
 	
 		$this->upgradePlugin();
