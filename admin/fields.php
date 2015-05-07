@@ -235,7 +235,7 @@
 		'section' => 'spu_display_rules',
 		'title'   => __( 'Show in' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
-		'std'     => array("Everywhere"),
+		'std'     => array("home","pages","posts","everywhere"),
 		'desc'    => __( 'Where to show popup.', $this->WPB_PREFIX),
 		'choices' => array(
 					'home' 		=> __( 'Home', $this->WPB_PREFIX),

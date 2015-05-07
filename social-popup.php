@@ -91,7 +91,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		add_action( 'init',array(&$this,'load_scripts' ),50 );	
 
 		//Deprecated --> Notification at top of plugin!
-		//add_action('admin_notices' ,array(&$this,'my_admin_notice'));
+		add_action('admin_notices' ,array(&$this,'my_admin_notice'));
 
 	
 		$this->upgradePlugin();
@@ -114,8 +114,8 @@ class Social_Popup extends WP_Plugin_Base_spu
 		
 	}	
 	function my_admin_notice(){
-		echo '<div class="error"><h3>Check out the SumoMe plugin</h3>
-		<p>Social PopUP has been deprecated and replaced by the new Popups plugin. It been totally recoded with new features!<br>Please download the new <a href="https://wordpress.org/plugins/popups/">Popups plugin</a></p></div>';
+		echo '<h3>Check out the SumoMe plugin</h3>
+		<p>SumoMe is a free toolkit to grow your email list and increase social shares. <a target="_blank" href="https://wordpress.org/plugins/sumome">Click here to check out SumoMe</a></p>';
 	}
 	/**
 	* Check technical requirements before activating the plugin. 

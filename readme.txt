@@ -14,6 +14,7 @@ Social popup to grow your Facebook Likes and Twitter following!
 
 This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and Facebook follow links. This will increase you followers ratio in a 40%. 
 
+[**Get super optimized sharing tools with the Share plugin**](http://bit.ly/1zqOXPs)
 
 
 == Changelog ==
