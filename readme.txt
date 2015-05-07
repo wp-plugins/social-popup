@@ -1,4 +1,4 @@
-=== Social PopUP - Deprecated ===
+=== Social PopUP (email lightbox) ===
 Contributors: timersys
 Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup
@@ -6,28 +6,15 @@ Requires at least: 3
 Tested up to: 3.8
 Stable tag: 1.6.4.4
 
-Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
+Lightweight social popup for your email list!
 
 
 == Description ==
 
 
-^	 Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
-^    New plugin include lot of new features and was recoded from scracth. The new social popup have much greater performance
-^    multiple popups are available now with different locations
+Simple email popup. Quick and fast way to grow your email list.
 
 
-= Install Multiple plugins at once with WpFavs  =
-
-Bulk plugin installation tool, import WP favorites and create your own lists ([http://wordpress.org/extend/plugins/wpfavs/](http://wordpress.org/extend/plugins/wpfavs/))
-
-= Increase your twitter followers  =
-
-Increase your Twitter followers with Twitter likebox Plugin ([http://wordpress.org/extend/plugins/twitter-like-box-reloaded/](http://wordpress.org/extend/plugins/twitter-like-box-reloaded/))
-
-= Wordpress Social Invitations  =
-
-Enhance your site by letting your users send Social Invitations ([http://wp.timersys.com/wordpress-social-invitations/](http://wp.timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme))
 
 == Changelog ==
 
