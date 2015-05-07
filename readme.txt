@@ -12,7 +12,8 @@ Social popup to grow your Facebook Likes and Twitter following!
 == Description ==
 
 
-Simple social popup. Quick and fast way to grow your social following.
+This plugin will display a popup or splash screen when a new user visit your site showing a Google+, twitter and Facebook follow links. This will increase you followers ratio in a 40%. 
+
 
 
 == Changelog ==
