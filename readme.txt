@@ -1,7 +1,7 @@
-=== Social PopUP (email lightbox) ===
+=== Social PopUP - Facebook, Twitter & Google+ ===
 Contributors: timersys
 Donate link: http://www.timersys.com/
-Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, growth, lightbox,  popover, posts, sharing, widget
+Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup, growth, lightbox,  popover, posts, sharing, widget, plugin
 Requires at least: 3
 Tested up to: 4.2
 Stable tag: 1.6.4.4
@@ -12,14 +12,14 @@ Social popup to grow your Facebook Likes and Twitter following!
 == Description ==
 
 
-Simple social popup. Quick and fast way to grow your email list.
+Simple social popup. Quick and fast way to grow your social following.
 
 
 == Changelog ==
 
 = 1.6.4.4 = 
 
-Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
+Fixed plugin to work again =)
 
 = 1.6.4.3 =
 
