@@ -14,13 +14,10 @@
 				<p>
 						<a href="http://wordpress.org/extend/plugins/<?php echo $this->WPB_SLUG;?>/"><?php _e('Rate the plugin 5★ on WordPress.org', $this->WPB_PREFIX);?></a>
 				</p>
-				<p>
+<!--				<p>
 						<a href="<?php echo $this->WPB_PLUGIN_URL;?>/spu.po"><?php _e('Translate the plugin to your language', $this->WPB_PREFIX);?></a>
-				</p>
+				</p>-->
 				
-				<p>
-						<a href="http://www.timersys.com/en/contact-us/"><?php _e('Hire me!', $this->WPB_PREFIX);?></a>
-				</p>
 				<p style="font-weight:bold">OTHER COOL PLUGINS:</p>
 				
 					<a target="_blank" href="https://wordpress.org/plugins/sumome" target="_blank">SumoMe (growth toolkit)</a>

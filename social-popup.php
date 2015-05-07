@@ -438,7 +438,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 				}
 				echo $template;
 				echo '<span id="spu-timer"></span>';
-		echo ((isset($options['credits']) && $options['credits'] == 'true') || isset($credits['credits']) && $credits['credits'] == 'on' ) ? '<div id="spu-bottom"><span style="font-size:10px;float: right;margin-top: -6px;">Social PopUP by <a target="_blank" href="https://wordpress.org/plugins/SumoMe">SumoMe</a></span></div>':'';
+				echo '<div id="spu-bottom"><span style="font-size:10px;float: right;margin-top: -6px;">Social PopUP by <a target="_blank" href="https://wordpress.org/plugins/SumoMe">SumoMe</a></span></div>';
 		
 		echo '</div>';
 	}
