@@ -23,18 +23,8 @@
 				</p>
 				<p style="font-weight:bold">OTHER COOL PLUGINS:</p>
 				
-					<a href="http://wp.timersys.com/wordpress-social-invitations/?utm_source=social-popup&utm_medium=readme" target="_blank">Wordpress Social Invitations</a>
-					<a href="http://wordpress.org/support/plugin/twitter-like-box-reloaded" target="_blank">Twitter Like Box</a>
+					<a target="_blank" href="https://wordpress.org/plugins/sumome" target="_blank">SumoMe (growth toolkit)</a>
 				
-				<p><?php _e('Invite me a coffee :', $this->WPB_PREFIX);?></p>
-						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-						<input type="hidden" name="cmd" value="_s-xclick">
-						<input type="hidden" name="hosted_button_id" value="K4T6L69EV9G2Q">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-						</form>
-
-
 		
 				
 			

@@ -15,17 +15,17 @@
 		)
 	);
 	
-	$this->settings['credits'] = array(
+/*	$this->settings['credits'] = array(
 		'title'   => __( 'Credits Url' , $this->WPB_PREFIX),
 		'desc'    => __( 'Give us some support by enabling the small link on footer.' , $this->WPB_PREFIX),
-		'std'     => 'false',
+		'std'     => 'true',
 		'type'    => 'select',
 		'section' => 'spu_general',
 		'choices' => array(
 			'true' => __( 'Yes' , $this->WPB_PREFIX),
 			'false' => __( 'No' , $this->WPB_PREFIX)
 		)
-	);
+	);*/
 
 
 	$this->settings['google'] = array(
@@ -235,7 +235,7 @@
 		'section' => 'spu_display_rules',
 		'title'   => __( 'Show in' , $this->WPB_PREFIX),
 		'type'    => 'checkbox',
-		'std'     => array("everywhere"),
+		'std'     => array("Everywhere"),
 		'desc'    => __( 'Where to show popup.', $this->WPB_PREFIX),
 		'choices' => array(
 					'home' 		=> __( 'Home', $this->WPB_PREFIX),

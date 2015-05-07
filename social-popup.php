@@ -90,8 +90,8 @@ class Social_Popup extends WP_Plugin_Base_spu
 		//load js and css 
 		add_action( 'init',array(&$this,'load_scripts' ),50 );	
 
-		//Deprecated
-		add_action('admin_notices' ,array(&$this,'my_admin_notice'));
+		//Deprecated --> Notification at top of plugin!
+		//add_action('admin_notices' ,array(&$this,'my_admin_notice'));
 
 	
 		$this->upgradePlugin();
@@ -114,7 +114,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 		
 	}	
 	function my_admin_notice(){
-		echo '<div class="error"><h3>Social PopUP is deprecated</h3>
+		echo '<div class="error"><h3>Check out the SumoMe plugin</h3>
 		<p>Social PopUP has been deprecated and replaced by the new Popups plugin. It been totally recoded with new features!<br>Please download the new <a href="https://wordpress.org/plugins/popups/">Popups plugin</a></p></div>';
 	}
 	/**
@@ -438,7 +438,7 @@ class Social_Popup extends WP_Plugin_Base_spu
 				}
 				echo $template;
 				echo '<span id="spu-timer"></span>';
-		echo ((isset($options['credits']) && $options['credits'] == 'true') || isset($credits['credits']) && $credits['credits'] == 'on' ) ? '<div id="spu-bottom"><span style="font-size:10px;float: right;margin-top: -6px;">Social PopUP by <a href="http://www.timersys.com">Timersys</a></span></div>':'';
+		echo ((isset($options['credits']) && $options['credits'] == 'true') || isset($credits['credits']) && $credits['credits'] == 'on' ) ? '<div id="spu-bottom"><span style="font-size:10px;float: right;margin-top: -6px;">Social PopUP by <a target="_blank" href="https://wordpress.org/plugins/SumoMe">SumoMe</a></span></div>':'';
 		
 		echo '</div>';
 	}
