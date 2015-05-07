@@ -4,7 +4,7 @@ Donate link: http://www.timersys.com/
 Tags: twitter,google+, facebook,social popup, twitter follow, facebook like, google plus,social boost, social splash, popup, facebook popup
 Requires at least: 3
 Tested up to: 3.8
-Stable tag: 1.6.4.4
+Stable tag: 1.6.4.5
 
 Deprecated plugin. Please download the new Social PopUp at https://wordpress.org/plugins/popups/
 
